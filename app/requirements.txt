@@ -1,0 +1,8 @@
+streamlit>=1.40
+databricks-sdk>=0.40
+opencv-python-headless>=4.10,<5
+numpy<2.3
+pandas
+pillow
+plotly
+matplotlib

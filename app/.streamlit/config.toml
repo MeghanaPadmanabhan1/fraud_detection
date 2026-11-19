@@ -1,0 +1,14 @@
+[theme]
+base = "light"
+primaryColor = "#1B3139"
+backgroundColor = "#F7F8FA"
+secondaryBackgroundColor = "#EEF1F5"
+textColor = "#1B2430"
+font = "sans serif"
+
+[server]
+headless = true
+maxUploadSize = 20     # MB; the app itself accepts photos up to 15 MB
+
+[browser]
+gatherUsageStats = false

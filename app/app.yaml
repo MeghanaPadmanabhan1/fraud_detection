@@ -1,0 +1,8 @@
+command: ["streamlit", "run", "app.py"]
+env:
+  - name: DATABRICKS_WAREHOUSE_ID
+    valueFrom: sql-warehouse
+  - name: WB_SCHEMA
+    value: image_authenticity.workbench
+  - name: SSCD_ENDPOINT
+    value: image-authenticity-sscd

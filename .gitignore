@@ -1,0 +1,10 @@
+__pycache__/
+.databrickscfg
+.env
+.venv/
+*.pyc
+*.tgz
+wb_data/dataset/
+wb_data/ml_exp/**/*.csv
+wb_data/ml_models/
+wb_data/pool_raw*/

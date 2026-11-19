@@ -1,0 +1,90 @@
+[
+ {
+  "variant": "orig",
+  "model": "sscd_disc_mixup",
+  "preprocessing": "square 320x320 (used in the main run)",
+  "auc": 0.9393382352941176,
+  "recall_at_0fp": 0.8529411764705882,
+  "screenshot": 0.25,
+  "rephotograph": 0.75,
+  "reuse_cropped": 1.0,
+  "splice": 0.75
+ },
+ {
+  "variant": "orig",
+  "model": "sscd_disc_mixup",
+  "preprocessing": "short edge 288 (aspect kept)",
+  "auc": 0.9503676470588235,
+  "recall_at_0fp": 0.9411764705882353,
+  "screenshot": 1.0,
+  "rephotograph": 0.75,
+  "reuse_cropped": 1.0,
+  "splice": 0.75
+ },
+ {
+  "variant": "orig",
+  "model": "sscd_disc_large",
+  "preprocessing": "square 320x320 (used in the main run)",
+  "auc": 0.9568014705882353,
+  "recall_at_0fp": 0.8823529411764706,
+  "screenshot": 0.5,
+  "rephotograph": 0.75,
+  "reuse_cropped": 1.0,
+  "splice": 0.75
+ },
+ {
+  "variant": "orig",
+  "model": "sscd_disc_large",
+  "preprocessing": "short edge 288 (aspect kept)",
+  "auc": 0.9604779411764706,
+  "recall_at_0fp": 0.9411764705882353,
+  "screenshot": 1.0,
+  "rephotograph": 0.75,
+  "reuse_cropped": 1.0,
+  "splice": 0.75
+ },
+ {
+  "variant": "social",
+  "model": "sscd_disc_mixup",
+  "preprocessing": "square 320x320 (used in the main run)",
+  "auc": 0.9457720588235294,
+  "recall_at_0fp": 0.8529411764705882,
+  "screenshot": 0.25,
+  "rephotograph": 0.75,
+  "reuse_cropped": 1.0,
+  "splice": 0.75
+ },
+ {
+  "variant": "social",
+  "model": "sscd_disc_mixup",
+  "preprocessing": "short edge 288 (aspect kept)",
+  "auc": 0.9522058823529411,
+  "recall_at_0fp": 0.9411764705882353,
+  "screenshot": 1.0,
+  "rephotograph": 0.75,
+  "reuse_cropped": 1.0,
+  "splice": 0.75
+ },
+ {
+  "variant": "social",
+  "model": "sscd_disc_large",
+  "preprocessing": "square 320x320 (used in the main run)",
+  "auc": 0.9558823529411765,
+  "recall_at_0fp": 0.8529411764705882,
+  "screenshot": 0.25,
+  "rephotograph": 0.75,
+  "reuse_cropped": 1.0,
+  "splice": 0.75
+ },
+ {
+  "variant": "social",
+  "model": "sscd_disc_large",
+  "preprocessing": "short edge 288 (aspect kept)",
+  "auc": 0.9641544117647058,
+  "recall_at_0fp": 0.9411764705882353,
+  "screenshot": 1.0,
+  "rephotograph": 0.75,
+  "reuse_cropped": 1.0,
+  "splice": 0.75
+ }
+]

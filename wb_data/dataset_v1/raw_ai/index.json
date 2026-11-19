@@ -1,0 +1,242 @@
+[
+ {
+  "model": "databricks-gemini-3-pro-image",
+  "i": 0,
+  "device": "Apple iPhone 12",
+  "prompt": "an iPhone 12 with a cracked screen held in a hand outdoors",
+  "file": "gemini-3-pro-image_0.png",
+  "bytes": 1783667
+ },
+ {
+  "model": "databricks-gemini-3-pro-image",
+  "i": 1,
+  "device": "Samsung Galaxy S22",
+  "prompt": "a Samsung Galaxy S22 with a shattered display on a wooden desk",
+  "file": "gemini-3-pro-image_1.png",
+  "bytes": 1857110
+ },
+ {
+  "model": "databricks-gemini-3-pro-image",
+  "i": 2,
+  "device": "Google Pixel 6",
+  "prompt": "a Google Pixel 6 with a cracked back glass on a bedside table",
+  "file": "gemini-3-pro-image_2.png",
+  "bytes": 1644864
+ },
+ {
+  "model": "databricks-gemini-3-pro-image",
+  "i": 3,
+  "device": "Apple iPad",
+  "prompt": "an iPad with a spiderweb crack across the screen on a sofa",
+  "file": "gemini-3-pro-image_3.png",
+  "bytes": 2303517
+ },
+ {
+  "model": "databricks-gemini-3-pro-image",
+  "i": 4,
+  "device": "OnePlus 9",
+  "prompt": "a OnePlus 9 with a broken screen and a bent frame on concrete",
+  "file": "gemini-3-pro-image_4.png",
+  "bytes": 2233480
+ },
+ {
+  "model": "databricks-gemini-3-pro-image",
+  "i": 5,
+  "device": "Apple iPhone SE",
+  "prompt": "an older iPhone SE with a chipped corner and cracked glass next to a coffee mug",
+  "file": "gemini-3-pro-image_5.png",
+  "bytes": 1625811
+ },
+ {
+  "model": "databricks-gemini-3-pro-image",
+  "i": 6,
+  "device": "Samsung Galaxy Tab",
+  "prompt": "a Samsung Galaxy Tab with a half-dead cracked display on a kitchen table",
+  "file": "gemini-3-pro-image_6.png",
+  "bytes": 2034352
+ },
+ {
+  "model": "databricks-gemini-3-pro-image",
+  "i": 7,
+  "device": "Motorola Moto G",
+  "prompt": "a Motorola Moto G with a cracked screen on a car dashboard",
+  "file": "gemini-3-pro-image_7.png",
+  "bytes": 1650439
+ },
+ {
+  "model": "databricks-gemini-3-pro-image",
+  "i": 8,
+  "device": "Apple iPhone 11",
+  "prompt": "an iPhone 11 with a cracked screen and water droplets on it, close up",
+  "file": "gemini-3-pro-image_8.png",
+  "bytes": 1681234
+ },
+ {
+  "model": "databricks-gemini-3-pro-image",
+  "i": 9,
+  "device": "Dell laptop",
+  "prompt": "a Dell laptop with a cracked LCD panel on an office desk",
+  "file": "gemini-3-pro-image_9.png",
+  "bytes": 1486188
+ },
+ {
+  "model": "databricks-gemini-3-1-flash-image",
+  "i": 0,
+  "device": "Apple iPhone 12",
+  "prompt": "an iPhone 12 with a cracked screen held in a hand outdoors",
+  "file": "gemini-3-1-flash-image_0.png",
+  "bytes": 1925295
+ },
+ {
+  "model": "databricks-gemini-3-1-flash-image",
+  "i": 1,
+  "device": "Samsung Galaxy S22",
+  "prompt": "a Samsung Galaxy S22 with a shattered display on a wooden desk",
+  "file": "gemini-3-1-flash-image_1.png",
+  "bytes": 1938858
+ },
+ {
+  "model": "databricks-gemini-3-1-flash-image",
+  "i": 2,
+  "device": "Google Pixel 6",
+  "prompt": "a Google Pixel 6 with a cracked back glass on a bedside table",
+  "file": "gemini-3-1-flash-image_2.png",
+  "bytes": 1906452
+ },
+ {
+  "model": "databricks-gemini-3-1-flash-image",
+  "i": 3,
+  "device": "Apple iPad",
+  "prompt": "an iPad with a spiderweb crack across the screen on a sofa",
+  "file": "gemini-3-1-flash-image_3.png",
+  "bytes": 2149323
+ },
+ {
+  "model": "databricks-gemini-3-1-flash-image",
+  "i": 4,
+  "device": "OnePlus 9",
+  "prompt": "a OnePlus 9 with a broken screen and a bent frame on concrete",
+  "file": "gemini-3-1-flash-image_4.png",
+  "bytes": 2493019
+ },
+ {
+  "model": "databricks-gemini-3-1-flash-image",
+  "i": 5,
+  "device": "Apple iPhone SE",
+  "prompt": "an older iPhone SE with a chipped corner and cracked glass next to a coffee mug",
+  "file": "gemini-3-1-flash-image_5.png",
+  "bytes": 1676257
+ },
+ {
+  "model": "databricks-gemini-3-1-flash-image",
+  "i": 6,
+  "device": "Samsung Galaxy Tab",
+  "prompt": "a Samsung Galaxy Tab with a half-dead cracked display on a kitchen table",
+  "file": "gemini-3-1-flash-image_6.png",
+  "bytes": 1866190
+ },
+ {
+  "model": "databricks-gemini-3-1-flash-image",
+  "i": 7,
+  "device": "Motorola Moto G",
+  "prompt": "a Motorola Moto G with a cracked screen on a car dashboard",
+  "file": "gemini-3-1-flash-image_7.png",
+  "bytes": 1835402
+ },
+ {
+  "model": "databricks-gemini-3-1-flash-image",
+  "i": 8,
+  "device": "Apple iPhone 11",
+  "prompt": "an iPhone 11 with a cracked screen and water droplets on it, close up",
+  "file": "gemini-3-1-flash-image_8.png",
+  "bytes": 1918924
+ },
+ {
+  "model": "databricks-gemini-3-1-flash-image",
+  "i": 9,
+  "device": "Dell laptop",
+  "prompt": "a Dell laptop with a cracked LCD panel on an office desk",
+  "file": "gemini-3-1-flash-image_9.png",
+  "bytes": 1775462
+ },
+ {
+  "model": "databricks-gemini-3-1-flash-lite-image",
+  "i": 0,
+  "device": "Apple iPhone 12",
+  "prompt": "an iPhone 12 with a cracked screen held in a hand outdoors",
+  "file": "gemini-3-1-flash-lite-image_0.png",
+  "bytes": 141733
+ },
+ {
+  "model": "databricks-gemini-3-1-flash-lite-image",
+  "i": 1,
+  "device": "Samsung Galaxy S22",
+  "prompt": "a Samsung Galaxy S22 with a shattered display on a wooden desk",
+  "file": "gemini-3-1-flash-lite-image_1.png",
+  "bytes": 217727
+ },
+ {
+  "model": "databricks-gemini-3-1-flash-lite-image",
+  "i": 2,
+  "device": "Google Pixel 6",
+  "prompt": "a Google Pixel 6 with a cracked back glass on a bedside table",
+  "file": "gemini-3-1-flash-lite-image_2.png",
+  "bytes": 172219
+ },
+ {
+  "model": "databricks-gemini-3-1-flash-lite-image",
+  "i": 3,
+  "device": "Apple iPad",
+  "prompt": "an iPad with a spiderweb crack across the screen on a sofa",
+  "file": "gemini-3-1-flash-lite-image_3.png",
+  "bytes": 248645
+ },
+ {
+  "model": "databricks-gemini-3-1-flash-lite-image",
+  "i": 4,
+  "device": "OnePlus 9",
+  "prompt": "a OnePlus 9 with a broken screen and a bent frame on concrete",
+  "file": "gemini-3-1-flash-lite-image_4.png",
+  "bytes": 278073
+ },
+ {
+  "model": "databricks-gemini-3-1-flash-lite-image",
+  "i": 5,
+  "device": "Apple iPhone SE",
+  "prompt": "an older iPhone SE with a chipped corner and cracked glass next to a coffee mug",
+  "file": "gemini-3-1-flash-lite-image_5.png",
+  "bytes": 205746
+ },
+ {
+  "model": "databricks-gemini-3-1-flash-lite-image",
+  "i": 6,
+  "device": "Samsung Galaxy Tab",
+  "prompt": "a Samsung Galaxy Tab with a half-dead cracked display on a kitchen table",
+  "file": "gemini-3-1-flash-lite-image_6.png",
+  "bytes": 163611
+ },
+ {
+  "model": "databricks-gemini-3-1-flash-lite-image",
+  "i": 7,
+  "device": "Motorola Moto G",
+  "prompt": "a Motorola Moto G with a cracked screen on a car dashboard",
+  "file": "gemini-3-1-flash-lite-image_7.png",
+  "bytes": 196390
+ },
+ {
+  "model": "databricks-gemini-3-1-flash-lite-image",
+  "i": 8,
+  "device": "Apple iPhone 11",
+  "prompt": "an iPhone 11 with a cracked screen and water droplets on it, close up",
+  "file": "gemini-3-1-flash-lite-image_8.png",
+  "bytes": 181010
+ },
+ {
+  "model": "databricks-gemini-3-1-flash-lite-image",
+  "i": 9,
+  "device": "Dell laptop",
+  "prompt": "a Dell laptop with a cracked LCD panel on an office desk",
+  "file": "gemini-3-1-flash-lite-image_9.png",
+  "bytes": 197806
+ }
+]

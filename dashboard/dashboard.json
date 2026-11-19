@@ -1,0 +1,283 @@
+{
+  "datasets": [
+    {
+      "name": "ds_scores",
+      "displayName": "Composite scores",
+      "queryLines": [
+        "SELECT image_id, true_label, verdict, narrative,\n",
+        "       fraud_score, deepfake_confidence, shallowfake_confidence, watermark_signal\n",
+        "FROM scores"
+      ],
+      "columns": [
+        {"displayName": "Images Scored", "description": "count", "expression": "COUNT(`image_id`)"},
+        {"displayName": "Likely Fraudulent", "description": "verdict=likely_fraudulent", "expression": "SUM(CASE WHEN `verdict`='likely_fraudulent' THEN 1 ELSE 0 END)"},
+        {"displayName": "Needs Review", "description": "verdict=needs_review", "expression": "SUM(CASE WHEN `verdict`='needs_review' THEN 1 ELSE 0 END)"},
+        {"displayName": "Avg Fraud Score", "description": "mean composite", "expression": "AVG(`fraud_score`)"}
+      ]
+    },
+    {
+      "name": "ds_detections",
+      "displayName": "Per-signal scores",
+      "queryLines": [
+        "SELECT slot, true_label, score\n",
+        "FROM detections\n",
+        "WHERE score IS NOT NULL"
+      ]
+    },
+    {
+      "name": "ds_model_eval",
+      "displayName": "Model evaluation (all runs)",
+      "queryLines": [
+        "SELECT run_ts, functionality, model, target_class, mean_authentic,\n",
+        "       mean_deepfake, mean_shallow_fake, separation_vs_authentic, selection_signature\n",
+        "FROM model_eval"
+      ]
+    },
+    {
+      "name": "ds_learned_eval",
+      "displayName": "Learned (VLM) model A/B",
+      "queryLines": [
+        "SELECT model, separation_vs_authentic, mean_authentic, mean_deepfake\n",
+        "FROM model_eval\n",
+        "WHERE functionality LIKE 'Deepfake%Learned%'"
+      ]
+    },
+    {
+      "name": "ds_latest_eval",
+      "displayName": "Latest run — separation by functionality",
+      "queryLines": [
+        "SELECT functionality, separation_vs_authentic\n",
+        "FROM model_eval\n",
+        "WHERE run_ts = (SELECT max(run_ts) FROM model_eval)"
+      ]
+    }
+  ],
+  "pages": [
+    {
+      "name": "overview",
+      "displayName": "Overview",
+      "pageType": "PAGE_TYPE_CANVAS",
+      "layoutVersion": "GRID_V1",
+      "layout": [
+        {
+          "widget": {
+            "name": "header",
+            "multilineTextboxSpec": {
+              "lines": [
+                "# Image Authenticity POC — Deepfake / Shallow-fake / Provenance\n",
+                "\n",
+                "Modular, config-driven fraud-image detection on Databricks (Asurion POC). Each detection technique is a swappable **slot**; scores combine into one composite **fraud score** + a human-readable narrative for the adjuster. Labels shown are the known ground truth of the sample set (`authentic` = real photos, `shallow_fake` = programmatically edited, `deepfake` = generated via the Gemini image endpoint). Use this to read how each signal separates the classes and to calibrate thresholds."
+              ]
+            }
+          },
+          "position": {"x": 0, "y": 0, "width": 12, "height": 3}
+        },
+        {
+          "widget": {
+            "name": "kpi-total",
+            "queries": [{"name": "q", "query": {"datasetName": "ds_scores", "fields": [{"name": "measure(Images Scored)", "expression": "MEASURE(`Images Scored`)"}], "disaggregated": false}}],
+            "spec": {"version": 2, "widgetType": "counter", "frame": {"title": "Images Scored", "showTitle": true}, "encodings": {"value": {"fieldName": "measure(Images Scored)", "displayName": "Images"}}}
+          },
+          "position": {"x": 0, "y": 3, "width": 3, "height": 3}
+        },
+        {
+          "widget": {
+            "name": "kpi-fraud",
+            "queries": [{"name": "q", "query": {"datasetName": "ds_scores", "fields": [{"name": "measure(Likely Fraudulent)", "expression": "MEASURE(`Likely Fraudulent`)"}], "disaggregated": false}}],
+            "spec": {"version": 2, "widgetType": "counter", "frame": {"title": "Likely Fraudulent", "showTitle": true}, "encodings": {"value": {"fieldName": "measure(Likely Fraudulent)", "displayName": "Flagged"}}}
+          },
+          "position": {"x": 3, "y": 3, "width": 3, "height": 3}
+        },
+        {
+          "widget": {
+            "name": "kpi-review",
+            "queries": [{"name": "q", "query": {"datasetName": "ds_scores", "fields": [{"name": "measure(Needs Review)", "expression": "MEASURE(`Needs Review`)"}], "disaggregated": false}}],
+            "spec": {"version": 2, "widgetType": "counter", "frame": {"title": "Needs Review", "showTitle": true}, "encodings": {"value": {"fieldName": "measure(Needs Review)", "displayName": "Review"}}}
+          },
+          "position": {"x": 6, "y": 3, "width": 3, "height": 3}
+        },
+        {
+          "widget": {
+            "name": "kpi-avg",
+            "queries": [{"name": "q", "query": {"datasetName": "ds_scores", "fields": [{"name": "measure(Avg Fraud Score)", "expression": "MEASURE(`Avg Fraud Score`)"}], "disaggregated": false}}],
+            "spec": {"version": 2, "widgetType": "counter", "frame": {"title": "Avg Fraud Score", "showTitle": true}, "encodings": {"value": {"fieldName": "measure(Avg Fraud Score)", "format": {"type": "number-percent", "decimalPlaces": {"type": "max", "places": 1}}, "displayName": "Avg"}}}
+          },
+          "position": {"x": 9, "y": 3, "width": 3, "height": 3}
+        },
+        {
+          "widget": {
+            "name": "verdict-by-label",
+            "queries": [{"name": "q", "query": {"datasetName": "ds_scores", "fields": [{"name": "count(image_id)", "expression": "COUNT(`image_id`)"}, {"name": "true_label", "expression": "`true_label`"}, {"name": "verdict", "expression": "`verdict`"}], "disaggregated": false}}],
+            "spec": {
+              "version": 3, "widgetType": "bar",
+              "frame": {"showTitle": true, "title": "Verdict distribution by true label"},
+              "encodings": {
+                "x": {"fieldName": "true_label", "scale": {"type": "categorical"}, "displayName": "True label"},
+                "y": {"fieldName": "count(image_id)", "scale": {"type": "quantitative"}, "displayName": "Images"},
+                "color": {"fieldName": "verdict", "scale": {"type": "categorical", "mappings": [{"value": "likely_fraudulent", "color": "#FF7054"}, {"value": "needs_review", "color": "#FFA600"}, {"value": "likely_authentic", "color": "#99DDB4"}, {"value": "indeterminate", "color": "#4E5185"}]}, "displayName": "Verdict"}
+              }
+            }
+          },
+          "position": {"x": 0, "y": 6, "width": 6, "height": 6}
+        },
+        {
+          "widget": {
+            "name": "score-box",
+            "queries": [{"name": "q", "query": {"datasetName": "ds_scores", "fields": [{"name": "true_label", "expression": "`true_label`"}, {"name": "fraud_score", "expression": "`fraud_score`"}], "disaggregated": true}}],
+            "spec": {
+              "version": 1, "widgetType": "box",
+              "frame": {"showTitle": true, "title": "Fraud score spread by true label"},
+              "encodings": {
+                "x": {"fieldName": "true_label", "scale": {"type": "categorical"}, "displayName": "True label"},
+                "y": {"fieldName": "fraud_score", "scale": {"type": "quantitative"}, "displayName": "Fraud score"}
+              }
+            }
+          },
+          "position": {"x": 6, "y": 6, "width": 6, "height": 6}
+        },
+        {
+          "widget": {
+            "name": "calibration-heatmap",
+            "queries": [{"name": "q", "query": {"datasetName": "ds_detections", "fields": [{"name": "slot", "expression": "`slot`"}, {"name": "true_label", "expression": "`true_label`"}, {"name": "avg(score)", "expression": "AVG(`score`)"}], "disaggregated": false}}],
+            "spec": {
+              "version": 3, "widgetType": "heatmap",
+              "frame": {"showTitle": true, "title": "Calibration — mean signal score by slot × true label"},
+              "encodings": {
+                "x": {"fieldName": "true_label", "scale": {"type": "categorical"}, "displayName": "True label"},
+                "y": {"fieldName": "slot", "scale": {"type": "categorical"}, "displayName": "Detector slot"},
+                "color": {"fieldName": "avg(score)", "scale": {"type": "quantitative", "colorRamp": {"mode": "custom-sequential", "colors": {"start": "#1D425C", "end": "#FF7054"}}}},
+                "label": {"show": true}
+              }
+            }
+          },
+          "position": {"x": 0, "y": 12, "width": 12, "height": 6}
+        },
+        {
+          "widget": {
+            "name": "detail",
+            "queries": [{"name": "q", "query": {"datasetName": "ds_scores", "fields": [
+              {"name": "image_id", "expression": "`image_id`"},
+              {"name": "true_label", "expression": "`true_label`"},
+              {"name": "verdict", "expression": "`verdict`"},
+              {"name": "fraud_score", "expression": "`fraud_score`"},
+              {"name": "deepfake_confidence", "expression": "`deepfake_confidence`"},
+              {"name": "shallowfake_confidence", "expression": "`shallowfake_confidence`"},
+              {"name": "narrative", "expression": "`narrative`"}
+            ], "disaggregated": true}}],
+            "spec": {
+              "version": 2, "widgetType": "table",
+              "frame": {"showTitle": true, "title": "Per-image detail"},
+              "encodings": {"columns": [
+                {"fieldName": "image_id", "displayName": "Image"},
+                {"fieldName": "true_label", "displayName": "True label"},
+                {"fieldName": "verdict", "displayName": "Verdict"},
+                {"fieldName": "fraud_score", "displayName": "Fraud", "format": {"type": "number-percent", "decimalPlaces": {"type": "exact", "places": 0}}},
+                {"fieldName": "deepfake_confidence", "displayName": "Deepfake", "format": {"type": "number-percent", "decimalPlaces": {"type": "exact", "places": 0}}},
+                {"fieldName": "shallowfake_confidence", "displayName": "Shallow", "format": {"type": "number-percent", "decimalPlaces": {"type": "exact", "places": 0}}},
+                {"fieldName": "narrative", "displayName": "Narrative"}
+              ]}
+            }
+          },
+          "position": {"x": 0, "y": 18, "width": 12, "height": 7}
+        }
+      ]
+    },
+    {
+      "name": "model_ab",
+      "displayName": "Model A/B",
+      "pageType": "PAGE_TYPE_CANVAS",
+      "layoutVersion": "GRID_V1",
+      "layout": [
+        {
+          "widget": {
+            "name": "ab_header",
+            "multilineTextboxSpec": {
+              "lines": [
+                "# Model A/B — discrimination by model, across runs\n",
+                "\n",
+                "Each pipeline run appends to `results.model_eval`. **Separation** = mean suspicion score on a functionality's target fake class minus its score on authentic images — higher is a better discriminator. Left: the Learned (VLM) functionality compared across whichever vision models have been run. Right: separation by functionality for the most recent run."
+              ]
+            }
+          },
+          "position": {"x": 0, "y": 0, "width": 12, "height": 3}
+        },
+        {
+          "widget": {
+            "name": "vlm_ab",
+            "queries": [{"name": "q", "query": {"datasetName": "ds_learned_eval", "fields": [
+              {"name": "model", "expression": "`model`"},
+              {"name": "avg(separation_vs_authentic)", "expression": "AVG(`separation_vs_authentic`)"}
+            ], "disaggregated": false}}],
+            "spec": {
+              "version": 3, "widgetType": "bar",
+              "frame": {"showTitle": true, "title": "Learned (VLM): mean separation by model"},
+              "encodings": {
+                "x": {"fieldName": "model", "scale": {"type": "categorical"}, "displayName": "VLM"},
+                "y": {"fieldName": "avg(separation_vs_authentic)", "scale": {"type": "quantitative"}, "displayName": "Separation vs authentic"},
+                "color": {"fieldName": "model", "scale": {"type": "categorical"}, "displayName": "VLM"}
+              }
+            }
+          },
+          "position": {"x": 0, "y": 3, "width": 6, "height": 6}
+        },
+        {
+          "widget": {
+            "name": "latest_by_func",
+            "queries": [{"name": "q", "query": {"datasetName": "ds_latest_eval", "fields": [
+              {"name": "functionality", "expression": "`functionality`"},
+              {"name": "avg(separation_vs_authentic)", "expression": "AVG(`separation_vs_authentic`)"}
+            ], "disaggregated": false}}],
+            "spec": {
+              "version": 3, "widgetType": "bar",
+              "frame": {"showTitle": true, "title": "Latest run: separation by functionality"},
+              "encodings": {
+                "y": {"fieldName": "functionality", "scale": {"type": "categorical"}, "displayName": "Functionality"},
+                "x": {"fieldName": "avg(separation_vs_authentic)", "scale": {"type": "quantitative"}, "displayName": "Separation vs authentic"}
+              }
+            }
+          },
+          "position": {"x": 6, "y": 3, "width": 6, "height": 6}
+        },
+        {
+          "widget": {
+            "name": "eval_table",
+            "queries": [{"name": "q", "query": {"datasetName": "ds_model_eval", "fields": [
+              {"name": "run_ts", "expression": "`run_ts`"},
+              {"name": "functionality", "expression": "`functionality`"},
+              {"name": "model", "expression": "`model`"},
+              {"name": "mean_authentic", "expression": "`mean_authentic`"},
+              {"name": "mean_deepfake", "expression": "`mean_deepfake`"},
+              {"name": "mean_shallow_fake", "expression": "`mean_shallow_fake`"},
+              {"name": "separation_vs_authentic", "expression": "`separation_vs_authentic`"}
+            ], "disaggregated": true}}],
+            "spec": {
+              "version": 2, "widgetType": "table",
+              "frame": {"showTitle": true, "title": "model_eval — every run"},
+              "encodings": {"columns": [
+                {"fieldName": "run_ts", "displayName": "Run"},
+                {"fieldName": "functionality", "displayName": "Functionality"},
+                {"fieldName": "model", "displayName": "Model"},
+                {"fieldName": "mean_authentic", "displayName": "Authentic", "format": {"type": "number", "decimalPlaces": {"type": "exact", "places": 2}}},
+                {"fieldName": "mean_deepfake", "displayName": "Deepfake", "format": {"type": "number", "decimalPlaces": {"type": "exact", "places": 2}}},
+                {"fieldName": "mean_shallow_fake", "displayName": "Shallow", "format": {"type": "number", "decimalPlaces": {"type": "exact", "places": 2}}},
+                {"fieldName": "separation_vs_authentic", "displayName": "Separation", "format": {"type": "number", "decimalPlaces": {"type": "exact", "places": 2}}}
+              ]}
+            }
+          },
+          "position": {"x": 0, "y": 9, "width": 12, "height": 7}
+        }
+      ]
+    }
+  ],
+  "uiSettings": {
+    "theme": {
+      "canvasBackgroundColor": {"light": "#FCFCFC", "dark": "#1F272D"},
+      "widgetBackgroundColor": {"light": "#FFFFFF", "dark": "#11171C"},
+      "widgetBorderColor": {"light": "#FFFFFF", "dark": "#11171C"},
+      "fontColor": {"light": "#11171C", "dark": "#E8ECF0"},
+      "selectionColor": {"light": "#2272B4", "dark": "#8ACAFF"},
+      "visualizationColors": ["#FFA600", "#FF7054", "#DE5582", "#995495", "#4E5185", "#1D425C", "#99DDB4"],
+      "widgetHeaderAlignment": "LEFT"
+    }
+  }
+}
