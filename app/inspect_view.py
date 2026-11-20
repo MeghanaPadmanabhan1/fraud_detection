@@ -19,7 +19,7 @@ def render(r, claim, img, cid, *, photo_bytes=None, receipt_bytes=None, uploaded
         back = {shown[k][0]: k for k in shown}
         if match:
             options.insert(1, "Same as an earlier claim")
-        mode = st.radio("Show", options, horizontal=True, label_visibility="collapsed")
+        mode = st.radio("Show", options, index=0, horizontal=True, label_visibility="collapsed", key=f"show_{cid}")
         if mode == "Same as an earlier claim":
             mc = ui.claim_row(match.evidence["match_claim_id"])
             m1, m2 = st.columns(2)
