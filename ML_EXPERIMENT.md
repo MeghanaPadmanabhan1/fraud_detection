@@ -83,7 +83,7 @@ SSCD 51 / 150 ms per image · CLIP detector 243 ms · SPAI 4.5 s (2.2 s on socia
 ## Recommendations
 
 1. **Add SSCD as a Stage 2 challenger**, backed by Vector Search; keep ORB+RANSAC to verify the top candidates (retrieve with SSCD, confirm with ORB). Recalibrate the threshold on adjudicated claims. Use the aspect-preserving resize.
-2. **Do not add the CLIP detector or SPAI to Stage 4 as-is.** For AI-made photos, lean on the provenance tag (when intact) and the vision models; if a learned detector is wanted, fine-tune on Asurion's own labelled photos and re-test across several generators.
+2. **Do not add the CLIP detector or SPAI to Stage 4 as-is.** For AI-made photos, lean on the provenance tag (when intact) and the vision models; if a learned detector is wanted, fine-tune on insurance_firm's own labelled photos and re-test across several generators.
 3. **Demote** ELA-hotspot, JPEG-ghost and noise-residual in the default configuration — they add false positives without measurable recall on this data.
 4. Before trusting any AI-image detector's headline number, run it on a compression-normalised set alongside a trivial metadata probe, as done here.
 

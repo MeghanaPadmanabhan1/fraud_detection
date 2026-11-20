@@ -15,7 +15,7 @@ import numpy as np
 from PIL import Image
 
 REPO = os.path.abspath(sys.argv[1]) if len(sys.argv) > 1 and os.path.isdir(sys.argv[1]) else os.path.expanduser(
-    "~/asurion-image-authenticity")
+    "~/insurance_firm-image-authenticity")
 WB = os.path.join(REPO, "wb_data")
 DATASET = os.path.join(WB, "dataset")
 EXP = os.path.join(WB, "ml_exp")

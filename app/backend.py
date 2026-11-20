@@ -17,10 +17,12 @@ import pandas as pd
 import streamlit as st
 from databricks.sdk import WorkspaceClient
 
+import lakebase
 from image_authenticity.workbench import checks, models
 from image_authenticity.workbench.engine import EngineContext
 
 SCHEMA = os.getenv("WB_SCHEMA", "image_authenticity.workbench")
+LAKEFLOW = os.getenv("WB_LAKEFLOW_SCHEMA", "image_authenticity.lakeflow")   # gold tables built by the Lakeflow pipeline
 WAREHOUSE = os.getenv("DATABRICKS_WAREHOUSE_ID")
 
 
@@ -300,12 +302,14 @@ def log(action: str, target: str, details: str):
     sql(f"INSERT INTO {T('audit_log')} VALUES (current_timestamp(), :actor, :action, :target, :details)",
         {"actor": current_user(), "action": action, "target": target, "details": details[:2000]})
     audit.clear()
+    lakebase.add_audit(current_user(), action, target, details)       # operational copy, best effort
 
 
 def add_label(claim_id, label, reason, note, model_verdict, config_name):
     sql(f"INSERT INTO {T('labels')} VALUES (:c, :l, :r, :n, :u, :v, :cfg, current_timestamp())",
         {"c": claim_id, "l": label, "r": reason, "n": note, "u": current_user(), "v": model_verdict,
          "cfg": config_name})
+    lakebase.add_decision(claim_id, label, reason, note, current_user(), model_verdict, config_name)  # Lakebase, best effort
     log("label", claim_id, f"{label} / {reason}" + (f" — {note}" if note else ""))
     labels.clear()
 

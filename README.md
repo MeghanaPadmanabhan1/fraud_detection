@@ -1,7 +1,31 @@
 # Image Authenticity POC — deepfake / shallow-fake / provenance detection
 
-Baseline, **modular** image-fraud detection for the Asurion <> Databricks POC.
-Built on `e2-demo-field-eng`. Every detection technique is a swappable *slot*:
+## End-to-end build: raw claims to a business app (Databricks)
+
+**Problem:** device-protection claims arrive with a photo and a receipt. Fraud is a reused photo, an AI-made or edited
+photo, or a receipt that does not support the claim. This build catches them, explains why, and puts a ranked queue in
+front of investigators.
+
+| Stage | What was built | Code | Output as text |
+|---|---|---|---|
+| Lakeflow | Auto Loader pipeline: raw JSON claim feed and photo files to bronze, silver (quality rules) and gold | `pipeline/claims_pipeline.sql` | `evidence/01_*`, `evidence/02_*` |
+| Unity Catalog | Catalog, schemas, volume, registered SSCD model, tags, comments, least-privilege grants | `uc/governance.sql` | `evidence/README.md` |
+| Lakebase | Review queue synced to Postgres; reviewer decisions and audit log written to Postgres | `lakebase/`, `app/lakebase.py` | `evidence/04_*` |
+| ML and Gen AI | SSCD copy detection on Model Serving; vision models for scene and receipt; rules engine; explainer | `image_authenticity/workbench/` | `ML_EXPERIMENT.md` |
+| Genie | A space over the gold tables, also used inside the app | `genie/`, `app/genie_client.py` | `evidence/03_*` |
+| Databricks app | Inspector, photo upload, business view, ask-the-data, compare methods, admin | `app/` | `evidence/05_*` |
+
+Deploy notes: replace the `<genie-space-id>` placeholder in `app/app.yaml` with your Genie space id; set `LAKEBASE_HOST` there only if the app identity cannot read instance metadata. Replace `<app-service-principal-client-id>` in `uc/governance.sql` with the app's client ID.
+
+Business deck: `deck/DECK.md`. Evidence index: `evidence/README.md`.
+Data is synthetic claim records over public Wikimedia Commons photos. No customer data is used.
+
+---
+
+## Original modular POC (detectors)
+
+Baseline, **modular** image-fraud detection for the insurance_firm <> Databricks POC.
+Built on `<workspace>`. Every detection technique is a swappable *slot*:
 changing which model fills a slot is a one-line config edit, not a code change.
 
 ## Why modular

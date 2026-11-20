@@ -1,0 +1,12 @@
+# App page tests (Streamlit AppTest, run against real workspace data)
+# date: 2026-11-20T19:47:14Z  workspace: e2
+# The Lakebase panel shows its fallback notice here because this test host cannot reach Postgres; the Lakebase connection itself is shown in 04_lakebase_smoke_test.json.
+PASS business page renders 
+  metrics: [('Fraud claims flagged', '51 of 52'), ('Money at stake flagged', '$33,919'), ('Firm “likely fraud” calls', '43'), ('Genuine claims sent to a person', '6 of 14')]
+  dataframes: 2
+PASS ask page renders 
+  sample buttons: 5
+PASS ask page answers a sample question 
+  chat messages: [('user', 'Which fraud types do we catch least often?'), ('assistant', 'Would you prefer to see which fraud types have the fewest firm calls or the lowest flagged')]
+PASS review page renders (with Lakebase panel) 
+  info/alerts: ["Lakebase is not reachable right now, so decisions are being saved to Delta only. (OperationalError('connection"]

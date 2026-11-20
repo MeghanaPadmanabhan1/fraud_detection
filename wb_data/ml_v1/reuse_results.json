@@ -2,7 +2,7 @@
  "rows": [
   {
    "id": "real_028__crop",
-   "path": "/Users/meghana.padmanabhan/asurion-image-authenticity/wb_data/ml_v1/reuse/queries/real_028__crop.jpg",
+   "path": "/Users/<user>/insurance_firm-image-authenticity/wb_data/ml_v1/reuse/queries/real_028__crop.jpg",
    "kind": "positive",
    "transform": "crop",
    "source": "real_028",
@@ -15,7 +15,7 @@
   },
   {
    "id": "real_028__screenshot",
-   "path": "/Users/meghana.padmanabhan/asurion-image-authenticity/wb_data/ml_v1/reuse/queries/real_028__screenshot.jpg",
+   "path": "/Users/<user>/insurance_firm-image-authenticity/wb_data/ml_v1/reuse/queries/real_028__screenshot.jpg",
    "kind": "positive",
    "transform": "screenshot",
    "source": "real_028",
@@ -28,7 +28,7 @@
   },
   {
    "id": "real_028__recompress",
-   "path": "/Users/meghana.padmanabhan/asurion-image-authenticity/wb_data/ml_v1/reuse/queries/real_028__recompress.jpg",
+   "path": "/Users/<user>/insurance_firm-image-authenticity/wb_data/ml_v1/reuse/queries/real_028__recompress.jpg",
    "kind": "positive",
    "transform": "recompress",
    "source": "real_028",
@@ -41,7 +41,7 @@
   },
   {
    "id": "real_028__relight",
-   "path": "/Users/meghana.padmanabhan/asurion-image-authenticity/wb_data/ml_v1/reuse/queries/real_028__relight.jpg",
+   "path": "/Users/<user>/insurance_firm-image-authenticity/wb_data/ml_v1/reuse/queries/real_028__relight.jpg",
    "kind": "positive",
    "transform": "relight",
    "source": "real_028",
@@ -54,7 +54,7 @@
   },
   {
    "id": "real_dmg_0__crop",
-   "path": "/Users/meghana.padmanabhan/asurion-image-authenticity/wb_data/ml_v1/reuse/queries/real_dmg_0__crop.jpg",
+   "path": "/Users/<user>/insurance_firm-image-authenticity/wb_data/ml_v1/reuse/queries/real_dmg_0__crop.jpg",
    "kind": "positive",
    "transform": "crop",
    "source": "real_dmg_0",
@@ -67,7 +67,7 @@
   },
   {
    "id": "real_dmg_0__screenshot",
-   "path": "/Users/meghana.padmanabhan/asurion-image-authenticity/wb_data/ml_v1/reuse/queries/real_dmg_0__screenshot.jpg",
+   "path": "/Users/<user>/insurance_firm-image-authenticity/wb_data/ml_v1/reuse/queries/real_dmg_0__screenshot.jpg",
    "kind": "positive",
    "transform": "screenshot",
    "source": "real_dmg_0",
@@ -80,7 +80,7 @@
   },
   {
    "id": "real_dmg_0__recompress",
-   "path": "/Users/meghana.padmanabhan/asurion-image-authenticity/wb_data/ml_v1/reuse/queries/real_dmg_0__recompress.jpg",
+   "path": "/Users/<user>/insurance_firm-image-authenticity/wb_data/ml_v1/reuse/queries/real_dmg_0__recompress.jpg",
    "kind": "positive",
    "transform": "recompress",
    "source": "real_dmg_0",
@@ -93,7 +93,7 @@
   },
   {
    "id": "real_dmg_0__relight",
-   "path": "/Users/meghana.padmanabhan/asurion-image-authenticity/wb_data/ml_v1/reuse/queries/real_dmg_0__relight.jpg",
+   "path": "/Users/<user>/insurance_firm-image-authenticity/wb_data/ml_v1/reuse/queries/real_dmg_0__relight.jpg",
    "kind": "positive",
    "transform": "relight",
    "source": "real_dmg_0",
@@ -106,7 +106,7 @@
   },
   {
    "id": "real_003__crop",
-   "path": "/Users/meghana.padmanabhan/asurion-image-authenticity/wb_data/ml_v1/reuse/queries/real_003__crop.jpg",
+   "path": "/Users/<user>/insurance_firm-image-authenticity/wb_data/ml_v1/reuse/queries/real_003__crop.jpg",
    "kind": "positive",
    "transform": "crop",
    "source": "real_003",
@@ -119,7 +119,7 @@
   },
   {
    "id": "real_003__screenshot",
-   "path": "/Users/meghana.padmanabhan/asurion-image-authenticity/wb_data/ml_v1/reuse/queries/real_003__screenshot.jpg",
+   "path": "/Users/<user>/insurance_firm-image-authenticity/wb_data/ml_v1/reuse/queries/real_003__screenshot.jpg",
    "kind": "positive",
    "transform": "screenshot",
    "source": "real_003",
@@ -132,7 +132,7 @@
   },
   {
    "id": "real_003__recompress",
-   "path": "/Users/meghana.padmanabhan/asurion-image-authenticity/wb_data/ml_v1/reuse/queries/real_003__recompress.jpg",
+   "path": "/Users/<user>/insurance_firm-image-authenticity/wb_data/ml_v1/reuse/queries/real_003__recompress.jpg",
    "kind": "positive",
    "transform": "recompress",
    "source": "real_003",
@@ -145,7 +145,7 @@
   },
   {
    "id": "real_003__relight",
-   "path": "/Users/meghana.padmanabhan/asurion-image-authenticity/wb_data/ml_v1/reuse/queries/real_003__relight.jpg",
+   "path": "/Users/<user>/insurance_firm-image-authenticity/wb_data/ml_v1/reuse/queries/real_003__relight.jpg",
    "kind": "positive",
    "transform": "relight",
    "source": "real_003",
@@ -158,7 +158,7 @@
   },
   {
    "id": "real_017__crop",
-   "path": "/Users/meghana.padmanabhan/asurion-image-authenticity/wb_data/ml_v1/reuse/queries/real_017__crop.jpg",
+   "path": "/Users/<user>/insurance_firm-image-authenticity/wb_data/ml_v1/reuse/queries/real_017__crop.jpg",
    "kind": "positive",
    "transform": "crop",
    "source": "real_017",
@@ -171,7 +171,7 @@
   },
   {
    "id": "real_017__screenshot",
-   "path": "/Users/meghana.padmanabhan/asurion-image-authenticity/wb_data/ml_v1/reuse/queries/real_017__screenshot.jpg",
+   "path": "/Users/<user>/insurance_firm-image-authenticity/wb_data/ml_v1/reuse/queries/real_017__screenshot.jpg",
    "kind": "positive",
    "transform": "screenshot",
    "source": "real_017",
@@ -184,7 +184,7 @@
   },
   {
    "id": "real_017__recompress",
-   "path": "/Users/meghana.padmanabhan/asurion-image-authenticity/wb_data/ml_v1/reuse/queries/real_017__recompress.jpg",
+   "path": "/Users/<user>/insurance_firm-image-authenticity/wb_data/ml_v1/reuse/queries/real_017__recompress.jpg",
    "kind": "positive",
    "transform": "recompress",
    "source": "real_017",
@@ -197,7 +197,7 @@
   },
   {
    "id": "real_017__relight",
-   "path": "/Users/meghana.padmanabhan/asurion-image-authenticity/wb_data/ml_v1/reuse/queries/real_017__relight.jpg",
+   "path": "/Users/<user>/insurance_firm-image-authenticity/wb_data/ml_v1/reuse/queries/real_017__relight.jpg",
    "kind": "positive",
    "transform": "relight",
    "source": "real_017",
@@ -210,7 +210,7 @@
   },
   {
    "id": "real_dmg_1__crop",
-   "path": "/Users/meghana.padmanabhan/asurion-image-authenticity/wb_data/ml_v1/reuse/queries/real_dmg_1__crop.jpg",
+   "path": "/Users/<user>/insurance_firm-image-authenticity/wb_data/ml_v1/reuse/queries/real_dmg_1__crop.jpg",
    "kind": "positive",
    "transform": "crop",
    "source": "real_dmg_1",
@@ -223,7 +223,7 @@
   },
   {
    "id": "real_dmg_1__screenshot",
-   "path": "/Users/meghana.padmanabhan/asurion-image-authenticity/wb_data/ml_v1/reuse/queries/real_dmg_1__screenshot.jpg",
+   "path": "/Users/<user>/insurance_firm-image-authenticity/wb_data/ml_v1/reuse/queries/real_dmg_1__screenshot.jpg",
    "kind": "positive",
    "transform": "screenshot",
    "source": "real_dmg_1",
@@ -236,7 +236,7 @@
   },
   {
    "id": "real_dmg_1__recompress",
-   "path": "/Users/meghana.padmanabhan/asurion-image-authenticity/wb_data/ml_v1/reuse/queries/real_dmg_1__recompress.jpg",
+   "path": "/Users/<user>/insurance_firm-image-authenticity/wb_data/ml_v1/reuse/queries/real_dmg_1__recompress.jpg",
    "kind": "positive",
    "transform": "recompress",
    "source": "real_dmg_1",
@@ -249,7 +249,7 @@
   },
   {
    "id": "real_dmg_1__relight",
-   "path": "/Users/meghana.padmanabhan/asurion-image-authenticity/wb_data/ml_v1/reuse/queries/real_dmg_1__relight.jpg",
+   "path": "/Users/<user>/insurance_firm-image-authenticity/wb_data/ml_v1/reuse/queries/real_dmg_1__relight.jpg",
    "kind": "positive",
    "transform": "relight",
    "source": "real_dmg_1",
@@ -262,7 +262,7 @@
   },
   {
    "id": "real_025__crop",
-   "path": "/Users/meghana.padmanabhan/asurion-image-authenticity/wb_data/ml_v1/reuse/queries/real_025__crop.jpg",
+   "path": "/Users/<user>/insurance_firm-image-authenticity/wb_data/ml_v1/reuse/queries/real_025__crop.jpg",
    "kind": "positive",
    "transform": "crop",
    "source": "real_025",
@@ -275,7 +275,7 @@
   },
   {
    "id": "real_025__screenshot",
-   "path": "/Users/meghana.padmanabhan/asurion-image-authenticity/wb_data/ml_v1/reuse/queries/real_025__screenshot.jpg",
+   "path": "/Users/<user>/insurance_firm-image-authenticity/wb_data/ml_v1/reuse/queries/real_025__screenshot.jpg",
    "kind": "positive",
    "transform": "screenshot",
    "source": "real_025",
@@ -288,7 +288,7 @@
   },
   {
    "id": "real_025__recompress",
-   "path": "/Users/meghana.padmanabhan/asurion-image-authenticity/wb_data/ml_v1/reuse/queries/real_025__recompress.jpg",
+   "path": "/Users/<user>/insurance_firm-image-authenticity/wb_data/ml_v1/reuse/queries/real_025__recompress.jpg",
    "kind": "positive",
    "transform": "recompress",
    "source": "real_025",
@@ -301,7 +301,7 @@
   },
   {
    "id": "real_025__relight",
-   "path": "/Users/meghana.padmanabhan/asurion-image-authenticity/wb_data/ml_v1/reuse/queries/real_025__relight.jpg",
+   "path": "/Users/<user>/insurance_firm-image-authenticity/wb_data/ml_v1/reuse/queries/real_025__relight.jpg",
    "kind": "positive",
    "transform": "relight",
    "source": "real_025",
@@ -314,7 +314,7 @@
   },
   {
    "id": "real_012__crop",
-   "path": "/Users/meghana.padmanabhan/asurion-image-authenticity/wb_data/ml_v1/reuse/queries/real_012__crop.jpg",
+   "path": "/Users/<user>/insurance_firm-image-authenticity/wb_data/ml_v1/reuse/queries/real_012__crop.jpg",
    "kind": "positive",
    "transform": "crop",
    "source": "real_012",
@@ -327,7 +327,7 @@
   },
   {
    "id": "real_012__screenshot",
-   "path": "/Users/meghana.padmanabhan/asurion-image-authenticity/wb_data/ml_v1/reuse/queries/real_012__screenshot.jpg",
+   "path": "/Users/<user>/insurance_firm-image-authenticity/wb_data/ml_v1/reuse/queries/real_012__screenshot.jpg",
    "kind": "positive",
    "transform": "screenshot",
    "source": "real_012",
@@ -340,7 +340,7 @@
   },
   {
    "id": "real_012__recompress",
-   "path": "/Users/meghana.padmanabhan/asurion-image-authenticity/wb_data/ml_v1/reuse/queries/real_012__recompress.jpg",
+   "path": "/Users/<user>/insurance_firm-image-authenticity/wb_data/ml_v1/reuse/queries/real_012__recompress.jpg",
    "kind": "positive",
    "transform": "recompress",
    "source": "real_012",
@@ -353,7 +353,7 @@
   },
   {
    "id": "real_012__relight",
-   "path": "/Users/meghana.padmanabhan/asurion-image-authenticity/wb_data/ml_v1/reuse/queries/real_012__relight.jpg",
+   "path": "/Users/<user>/insurance_firm-image-authenticity/wb_data/ml_v1/reuse/queries/real_012__relight.jpg",
    "kind": "positive",
    "transform": "relight",
    "source": "real_012",
@@ -366,7 +366,7 @@
   },
   {
    "id": "real_027__crop",
-   "path": "/Users/meghana.padmanabhan/asurion-image-authenticity/wb_data/ml_v1/reuse/queries/real_027__crop.jpg",
+   "path": "/Users/<user>/insurance_firm-image-authenticity/wb_data/ml_v1/reuse/queries/real_027__crop.jpg",
    "kind": "positive",
    "transform": "crop",
    "source": "real_027",
@@ -379,7 +379,7 @@
   },
   {
    "id": "real_027__screenshot",
-   "path": "/Users/meghana.padmanabhan/asurion-image-authenticity/wb_data/ml_v1/reuse/queries/real_027__screenshot.jpg",
+   "path": "/Users/<user>/insurance_firm-image-authenticity/wb_data/ml_v1/reuse/queries/real_027__screenshot.jpg",
    "kind": "positive",
    "transform": "screenshot",
    "source": "real_027",
@@ -392,7 +392,7 @@
   },
   {
    "id": "real_027__recompress",
-   "path": "/Users/meghana.padmanabhan/asurion-image-authenticity/wb_data/ml_v1/reuse/queries/real_027__recompress.jpg",
+   "path": "/Users/<user>/insurance_firm-image-authenticity/wb_data/ml_v1/reuse/queries/real_027__recompress.jpg",
    "kind": "positive",
    "transform": "recompress",
    "source": "real_027",
@@ -405,7 +405,7 @@
   },
   {
    "id": "real_027__relight",
-   "path": "/Users/meghana.padmanabhan/asurion-image-authenticity/wb_data/ml_v1/reuse/queries/real_027__relight.jpg",
+   "path": "/Users/<user>/insurance_firm-image-authenticity/wb_data/ml_v1/reuse/queries/real_027__relight.jpg",
    "kind": "positive",
    "transform": "relight",
    "source": "real_027",
@@ -418,7 +418,7 @@
   },
   {
    "id": "real_010__crop",
-   "path": "/Users/meghana.padmanabhan/asurion-image-authenticity/wb_data/ml_v1/reuse/queries/real_010__crop.jpg",
+   "path": "/Users/<user>/insurance_firm-image-authenticity/wb_data/ml_v1/reuse/queries/real_010__crop.jpg",
    "kind": "positive",
    "transform": "crop",
    "source": "real_010",
@@ -431,7 +431,7 @@
   },
   {
    "id": "real_010__screenshot",
-   "path": "/Users/meghana.padmanabhan/asurion-image-authenticity/wb_data/ml_v1/reuse/queries/real_010__screenshot.jpg",
+   "path": "/Users/<user>/insurance_firm-image-authenticity/wb_data/ml_v1/reuse/queries/real_010__screenshot.jpg",
    "kind": "positive",
    "transform": "screenshot",
    "source": "real_010",
@@ -444,7 +444,7 @@
   },
   {
    "id": "real_010__recompress",
-   "path": "/Users/meghana.padmanabhan/asurion-image-authenticity/wb_data/ml_v1/reuse/queries/real_010__recompress.jpg",
+   "path": "/Users/<user>/insurance_firm-image-authenticity/wb_data/ml_v1/reuse/queries/real_010__recompress.jpg",
    "kind": "positive",
    "transform": "recompress",
    "source": "real_010",
@@ -457,7 +457,7 @@
   },
   {
    "id": "real_010__relight",
-   "path": "/Users/meghana.padmanabhan/asurion-image-authenticity/wb_data/ml_v1/reuse/queries/real_010__relight.jpg",
+   "path": "/Users/<user>/insurance_firm-image-authenticity/wb_data/ml_v1/reuse/queries/real_010__relight.jpg",
    "kind": "positive",
    "transform": "relight",
    "source": "real_010",
@@ -470,7 +470,7 @@
   },
   {
    "id": "real_020__crop",
-   "path": "/Users/meghana.padmanabhan/asurion-image-authenticity/wb_data/ml_v1/reuse/queries/real_020__crop.jpg",
+   "path": "/Users/<user>/insurance_firm-image-authenticity/wb_data/ml_v1/reuse/queries/real_020__crop.jpg",
    "kind": "positive",
    "transform": "crop",
    "source": "real_020",
@@ -483,7 +483,7 @@
   },
   {
    "id": "real_020__screenshot",
-   "path": "/Users/meghana.padmanabhan/asurion-image-authenticity/wb_data/ml_v1/reuse/queries/real_020__screenshot.jpg",
+   "path": "/Users/<user>/insurance_firm-image-authenticity/wb_data/ml_v1/reuse/queries/real_020__screenshot.jpg",
    "kind": "positive",
    "transform": "screenshot",
    "source": "real_020",
@@ -496,7 +496,7 @@
   },
   {
    "id": "real_020__recompress",
-   "path": "/Users/meghana.padmanabhan/asurion-image-authenticity/wb_data/ml_v1/reuse/queries/real_020__recompress.jpg",
+   "path": "/Users/<user>/insurance_firm-image-authenticity/wb_data/ml_v1/reuse/queries/real_020__recompress.jpg",
    "kind": "positive",
    "transform": "recompress",
    "source": "real_020",
@@ -509,7 +509,7 @@
   },
   {
    "id": "real_020__relight",
-   "path": "/Users/meghana.padmanabhan/asurion-image-authenticity/wb_data/ml_v1/reuse/queries/real_020__relight.jpg",
+   "path": "/Users/<user>/insurance_firm-image-authenticity/wb_data/ml_v1/reuse/queries/real_020__relight.jpg",
    "kind": "positive",
    "transform": "relight",
    "source": "real_020",
@@ -522,7 +522,7 @@
   },
   {
    "id": "real_dmg_2__crop",
-   "path": "/Users/meghana.padmanabhan/asurion-image-authenticity/wb_data/ml_v1/reuse/queries/real_dmg_2__crop.jpg",
+   "path": "/Users/<user>/insurance_firm-image-authenticity/wb_data/ml_v1/reuse/queries/real_dmg_2__crop.jpg",
    "kind": "positive",
    "transform": "crop",
    "source": "real_dmg_2",
@@ -535,7 +535,7 @@
   },
   {
    "id": "real_dmg_2__screenshot",
-   "path": "/Users/meghana.padmanabhan/asurion-image-authenticity/wb_data/ml_v1/reuse/queries/real_dmg_2__screenshot.jpg",
+   "path": "/Users/<user>/insurance_firm-image-authenticity/wb_data/ml_v1/reuse/queries/real_dmg_2__screenshot.jpg",
    "kind": "positive",
    "transform": "screenshot",
    "source": "real_dmg_2",
@@ -548,7 +548,7 @@
   },
   {
    "id": "real_dmg_2__recompress",
-   "path": "/Users/meghana.padmanabhan/asurion-image-authenticity/wb_data/ml_v1/reuse/queries/real_dmg_2__recompress.jpg",
+   "path": "/Users/<user>/insurance_firm-image-authenticity/wb_data/ml_v1/reuse/queries/real_dmg_2__recompress.jpg",
    "kind": "positive",
    "transform": "recompress",
    "source": "real_dmg_2",
@@ -561,7 +561,7 @@
   },
   {
    "id": "real_dmg_2__relight",
-   "path": "/Users/meghana.padmanabhan/asurion-image-authenticity/wb_data/ml_v1/reuse/queries/real_dmg_2__relight.jpg",
+   "path": "/Users/<user>/insurance_firm-image-authenticity/wb_data/ml_v1/reuse/queries/real_dmg_2__relight.jpg",
    "kind": "positive",
    "transform": "relight",
    "source": "real_dmg_2",
@@ -574,7 +574,7 @@
   },
   {
    "id": "real_000__crop",
-   "path": "/Users/meghana.padmanabhan/asurion-image-authenticity/wb_data/ml_v1/reuse/queries/real_000__crop.jpg",
+   "path": "/Users/<user>/insurance_firm-image-authenticity/wb_data/ml_v1/reuse/queries/real_000__crop.jpg",
    "kind": "positive",
    "transform": "crop",
    "source": "real_000",
@@ -587,7 +587,7 @@
   },
   {
    "id": "real_000__screenshot",
-   "path": "/Users/meghana.padmanabhan/asurion-image-authenticity/wb_data/ml_v1/reuse/queries/real_000__screenshot.jpg",
+   "path": "/Users/<user>/insurance_firm-image-authenticity/wb_data/ml_v1/reuse/queries/real_000__screenshot.jpg",
    "kind": "positive",
    "transform": "screenshot",
    "source": "real_000",
@@ -600,7 +600,7 @@
   },
   {
    "id": "real_000__recompress",
-   "path": "/Users/meghana.padmanabhan/asurion-image-authenticity/wb_data/ml_v1/reuse/queries/real_000__recompress.jpg",
+   "path": "/Users/<user>/insurance_firm-image-authenticity/wb_data/ml_v1/reuse/queries/real_000__recompress.jpg",
    "kind": "positive",
    "transform": "recompress",
    "source": "real_000",
@@ -613,7 +613,7 @@
   },
   {
    "id": "real_000__relight",
-   "path": "/Users/meghana.padmanabhan/asurion-image-authenticity/wb_data/ml_v1/reuse/queries/real_000__relight.jpg",
+   "path": "/Users/<user>/insurance_firm-image-authenticity/wb_data/ml_v1/reuse/queries/real_000__relight.jpg",
    "kind": "positive",
    "transform": "relight",
    "source": "real_000",
@@ -626,7 +626,7 @@
   },
   {
    "id": "real_023__crop",
-   "path": "/Users/meghana.padmanabhan/asurion-image-authenticity/wb_data/ml_v1/reuse/queries/real_023__crop.jpg",
+   "path": "/Users/<user>/insurance_firm-image-authenticity/wb_data/ml_v1/reuse/queries/real_023__crop.jpg",
    "kind": "positive",
    "transform": "crop",
    "source": "real_023",
@@ -639,7 +639,7 @@
   },
   {
    "id": "real_023__screenshot",
-   "path": "/Users/meghana.padmanabhan/asurion-image-authenticity/wb_data/ml_v1/reuse/queries/real_023__screenshot.jpg",
+   "path": "/Users/<user>/insurance_firm-image-authenticity/wb_data/ml_v1/reuse/queries/real_023__screenshot.jpg",
    "kind": "positive",
    "transform": "screenshot",
    "source": "real_023",
@@ -652,7 +652,7 @@
   },
   {
    "id": "real_023__recompress",
-   "path": "/Users/meghana.padmanabhan/asurion-image-authenticity/wb_data/ml_v1/reuse/queries/real_023__recompress.jpg",
+   "path": "/Users/<user>/insurance_firm-image-authenticity/wb_data/ml_v1/reuse/queries/real_023__recompress.jpg",
    "kind": "positive",
    "transform": "recompress",
    "source": "real_023",
@@ -665,7 +665,7 @@
   },
   {
    "id": "real_023__relight",
-   "path": "/Users/meghana.padmanabhan/asurion-image-authenticity/wb_data/ml_v1/reuse/queries/real_023__relight.jpg",
+   "path": "/Users/<user>/insurance_firm-image-authenticity/wb_data/ml_v1/reuse/queries/real_023__relight.jpg",
    "kind": "positive",
    "transform": "relight",
    "source": "real_023",
@@ -678,7 +678,7 @@
   },
   {
    "id": "real_015__crop",
-   "path": "/Users/meghana.padmanabhan/asurion-image-authenticity/wb_data/ml_v1/reuse/queries/real_015__crop.jpg",
+   "path": "/Users/<user>/insurance_firm-image-authenticity/wb_data/ml_v1/reuse/queries/real_015__crop.jpg",
    "kind": "positive",
    "transform": "crop",
    "source": "real_015",
@@ -691,7 +691,7 @@
   },
   {
    "id": "real_015__screenshot",
-   "path": "/Users/meghana.padmanabhan/asurion-image-authenticity/wb_data/ml_v1/reuse/queries/real_015__screenshot.jpg",
+   "path": "/Users/<user>/insurance_firm-image-authenticity/wb_data/ml_v1/reuse/queries/real_015__screenshot.jpg",
    "kind": "positive",
    "transform": "screenshot",
    "source": "real_015",
@@ -704,7 +704,7 @@
   },
   {
    "id": "real_015__recompress",
-   "path": "/Users/meghana.padmanabhan/asurion-image-authenticity/wb_data/ml_v1/reuse/queries/real_015__recompress.jpg",
+   "path": "/Users/<user>/insurance_firm-image-authenticity/wb_data/ml_v1/reuse/queries/real_015__recompress.jpg",
    "kind": "positive",
    "transform": "recompress",
    "source": "real_015",
@@ -717,7 +717,7 @@
   },
   {
    "id": "real_015__relight",
-   "path": "/Users/meghana.padmanabhan/asurion-image-authenticity/wb_data/ml_v1/reuse/queries/real_015__relight.jpg",
+   "path": "/Users/<user>/insurance_firm-image-authenticity/wb_data/ml_v1/reuse/queries/real_015__relight.jpg",
    "kind": "positive",
    "transform": "relight",
    "source": "real_015",
@@ -730,7 +730,7 @@
   },
   {
    "id": "real_011__crop",
-   "path": "/Users/meghana.padmanabhan/asurion-image-authenticity/wb_data/ml_v1/reuse/queries/real_011__crop.jpg",
+   "path": "/Users/<user>/insurance_firm-image-authenticity/wb_data/ml_v1/reuse/queries/real_011__crop.jpg",
    "kind": "positive",
    "transform": "crop",
    "source": "real_011",
@@ -743,7 +743,7 @@
   },
   {
    "id": "real_011__screenshot",
-   "path": "/Users/meghana.padmanabhan/asurion-image-authenticity/wb_data/ml_v1/reuse/queries/real_011__screenshot.jpg",
+   "path": "/Users/<user>/insurance_firm-image-authenticity/wb_data/ml_v1/reuse/queries/real_011__screenshot.jpg",
    "kind": "positive",
    "transform": "screenshot",
    "source": "real_011",
@@ -756,7 +756,7 @@
   },
   {
    "id": "real_011__recompress",
-   "path": "/Users/meghana.padmanabhan/asurion-image-authenticity/wb_data/ml_v1/reuse/queries/real_011__recompress.jpg",
+   "path": "/Users/<user>/insurance_firm-image-authenticity/wb_data/ml_v1/reuse/queries/real_011__recompress.jpg",
    "kind": "positive",
    "transform": "recompress",
    "source": "real_011",
@@ -769,7 +769,7 @@
   },
   {
    "id": "real_011__relight",
-   "path": "/Users/meghana.padmanabhan/asurion-image-authenticity/wb_data/ml_v1/reuse/queries/real_011__relight.jpg",
+   "path": "/Users/<user>/insurance_firm-image-authenticity/wb_data/ml_v1/reuse/queries/real_011__relight.jpg",
    "kind": "positive",
    "transform": "relight",
    "source": "real_011",
@@ -782,7 +782,7 @@
   },
   {
    "id": "real_013__crop",
-   "path": "/Users/meghana.padmanabhan/asurion-image-authenticity/wb_data/ml_v1/reuse/queries/real_013__crop.jpg",
+   "path": "/Users/<user>/insurance_firm-image-authenticity/wb_data/ml_v1/reuse/queries/real_013__crop.jpg",
    "kind": "positive",
    "transform": "crop",
    "source": "real_013",
@@ -795,7 +795,7 @@
   },
   {
    "id": "real_013__screenshot",
-   "path": "/Users/meghana.padmanabhan/asurion-image-authenticity/wb_data/ml_v1/reuse/queries/real_013__screenshot.jpg",
+   "path": "/Users/<user>/insurance_firm-image-authenticity/wb_data/ml_v1/reuse/queries/real_013__screenshot.jpg",
    "kind": "positive",
    "transform": "screenshot",
    "source": "real_013",
@@ -808,7 +808,7 @@
   },
   {
    "id": "real_013__recompress",
-   "path": "/Users/meghana.padmanabhan/asurion-image-authenticity/wb_data/ml_v1/reuse/queries/real_013__recompress.jpg",
+   "path": "/Users/<user>/insurance_firm-image-authenticity/wb_data/ml_v1/reuse/queries/real_013__recompress.jpg",
    "kind": "positive",
    "transform": "recompress",
    "source": "real_013",
@@ -821,7 +821,7 @@
   },
   {
    "id": "real_013__relight",
-   "path": "/Users/meghana.padmanabhan/asurion-image-authenticity/wb_data/ml_v1/reuse/queries/real_013__relight.jpg",
+   "path": "/Users/<user>/insurance_firm-image-authenticity/wb_data/ml_v1/reuse/queries/real_013__relight.jpg",
    "kind": "positive",
    "transform": "relight",
    "source": "real_013",
@@ -834,7 +834,7 @@
   },
   {
    "id": "real_008__crop",
-   "path": "/Users/meghana.padmanabhan/asurion-image-authenticity/wb_data/ml_v1/reuse/queries/real_008__crop.jpg",
+   "path": "/Users/<user>/insurance_firm-image-authenticity/wb_data/ml_v1/reuse/queries/real_008__crop.jpg",
    "kind": "positive",
    "transform": "crop",
    "source": "real_008",
@@ -847,7 +847,7 @@
   },
   {
    "id": "real_008__screenshot",
-   "path": "/Users/meghana.padmanabhan/asurion-image-authenticity/wb_data/ml_v1/reuse/queries/real_008__screenshot.jpg",
+   "path": "/Users/<user>/insurance_firm-image-authenticity/wb_data/ml_v1/reuse/queries/real_008__screenshot.jpg",
    "kind": "positive",
    "transform": "screenshot",
    "source": "real_008",
@@ -860,7 +860,7 @@
   },
   {
    "id": "real_008__recompress",
-   "path": "/Users/meghana.padmanabhan/asurion-image-authenticity/wb_data/ml_v1/reuse/queries/real_008__recompress.jpg",
+   "path": "/Users/<user>/insurance_firm-image-authenticity/wb_data/ml_v1/reuse/queries/real_008__recompress.jpg",
    "kind": "positive",
    "transform": "recompress",
    "source": "real_008",
@@ -873,7 +873,7 @@
   },
   {
    "id": "real_008__relight",
-   "path": "/Users/meghana.padmanabhan/asurion-image-authenticity/wb_data/ml_v1/reuse/queries/real_008__relight.jpg",
+   "path": "/Users/<user>/insurance_firm-image-authenticity/wb_data/ml_v1/reuse/queries/real_008__relight.jpg",
    "kind": "positive",
    "transform": "relight",
    "source": "real_008",
@@ -886,7 +886,7 @@
   },
   {
    "id": "real_009__crop",
-   "path": "/Users/meghana.padmanabhan/asurion-image-authenticity/wb_data/ml_v1/reuse/queries/real_009__crop.jpg",
+   "path": "/Users/<user>/insurance_firm-image-authenticity/wb_data/ml_v1/reuse/queries/real_009__crop.jpg",
    "kind": "positive",
    "transform": "crop",
    "source": "real_009",
@@ -899,7 +899,7 @@
   },
   {
    "id": "real_009__screenshot",
-   "path": "/Users/meghana.padmanabhan/asurion-image-authenticity/wb_data/ml_v1/reuse/queries/real_009__screenshot.jpg",
+   "path": "/Users/<user>/insurance_firm-image-authenticity/wb_data/ml_v1/reuse/queries/real_009__screenshot.jpg",
    "kind": "positive",
    "transform": "screenshot",
    "source": "real_009",
@@ -912,7 +912,7 @@
   },
   {
    "id": "real_009__recompress",
-   "path": "/Users/meghana.padmanabhan/asurion-image-authenticity/wb_data/ml_v1/reuse/queries/real_009__recompress.jpg",
+   "path": "/Users/<user>/insurance_firm-image-authenticity/wb_data/ml_v1/reuse/queries/real_009__recompress.jpg",
    "kind": "positive",
    "transform": "recompress",
    "source": "real_009",
@@ -925,7 +925,7 @@
   },
   {
    "id": "real_009__relight",
-   "path": "/Users/meghana.padmanabhan/asurion-image-authenticity/wb_data/ml_v1/reuse/queries/real_009__relight.jpg",
+   "path": "/Users/<user>/insurance_firm-image-authenticity/wb_data/ml_v1/reuse/queries/real_009__relight.jpg",
    "kind": "positive",
    "transform": "relight",
    "source": "real_009",
@@ -938,7 +938,7 @@
   },
   {
    "id": "real_018__crop",
-   "path": "/Users/meghana.padmanabhan/asurion-image-authenticity/wb_data/ml_v1/reuse/queries/real_018__crop.jpg",
+   "path": "/Users/<user>/insurance_firm-image-authenticity/wb_data/ml_v1/reuse/queries/real_018__crop.jpg",
    "kind": "positive",
    "transform": "crop",
    "source": "real_018",
@@ -951,7 +951,7 @@
   },
   {
    "id": "real_018__screenshot",
-   "path": "/Users/meghana.padmanabhan/asurion-image-authenticity/wb_data/ml_v1/reuse/queries/real_018__screenshot.jpg",
+   "path": "/Users/<user>/insurance_firm-image-authenticity/wb_data/ml_v1/reuse/queries/real_018__screenshot.jpg",
    "kind": "positive",
    "transform": "screenshot",
    "source": "real_018",
@@ -964,7 +964,7 @@
   },
   {
    "id": "real_018__recompress",
-   "path": "/Users/meghana.padmanabhan/asurion-image-authenticity/wb_data/ml_v1/reuse/queries/real_018__recompress.jpg",
+   "path": "/Users/<user>/insurance_firm-image-authenticity/wb_data/ml_v1/reuse/queries/real_018__recompress.jpg",
    "kind": "positive",
    "transform": "recompress",
    "source": "real_018",
@@ -977,7 +977,7 @@
   },
   {
    "id": "real_018__relight",
-   "path": "/Users/meghana.padmanabhan/asurion-image-authenticity/wb_data/ml_v1/reuse/queries/real_018__relight.jpg",
+   "path": "/Users/<user>/insurance_firm-image-authenticity/wb_data/ml_v1/reuse/queries/real_018__relight.jpg",
    "kind": "positive",
    "transform": "relight",
    "source": "real_018",
@@ -990,7 +990,7 @@
   },
   {
    "id": "real_006__crop",
-   "path": "/Users/meghana.padmanabhan/asurion-image-authenticity/wb_data/ml_v1/reuse/queries/real_006__crop.jpg",
+   "path": "/Users/<user>/insurance_firm-image-authenticity/wb_data/ml_v1/reuse/queries/real_006__crop.jpg",
    "kind": "positive",
    "transform": "crop",
    "source": "real_006",
@@ -1003,7 +1003,7 @@
   },
   {
    "id": "real_006__screenshot",
-   "path": "/Users/meghana.padmanabhan/asurion-image-authenticity/wb_data/ml_v1/reuse/queries/real_006__screenshot.jpg",
+   "path": "/Users/<user>/insurance_firm-image-authenticity/wb_data/ml_v1/reuse/queries/real_006__screenshot.jpg",
    "kind": "positive",
    "transform": "screenshot",
    "source": "real_006",
@@ -1016,7 +1016,7 @@
   },
   {
    "id": "real_006__recompress",
-   "path": "/Users/meghana.padmanabhan/asurion-image-authenticity/wb_data/ml_v1/reuse/queries/real_006__recompress.jpg",
+   "path": "/Users/<user>/insurance_firm-image-authenticity/wb_data/ml_v1/reuse/queries/real_006__recompress.jpg",
    "kind": "positive",
    "transform": "recompress",
    "source": "real_006",
@@ -1029,7 +1029,7 @@
   },
   {
    "id": "real_006__relight",
-   "path": "/Users/meghana.padmanabhan/asurion-image-authenticity/wb_data/ml_v1/reuse/queries/real_006__relight.jpg",
+   "path": "/Users/<user>/insurance_firm-image-authenticity/wb_data/ml_v1/reuse/queries/real_006__relight.jpg",
    "kind": "positive",
    "transform": "relight",
    "source": "real_006",
@@ -1042,7 +1042,7 @@
   },
   {
    "id": "real_001__crop",
-   "path": "/Users/meghana.padmanabhan/asurion-image-authenticity/wb_data/ml_v1/reuse/queries/real_001__crop.jpg",
+   "path": "/Users/<user>/insurance_firm-image-authenticity/wb_data/ml_v1/reuse/queries/real_001__crop.jpg",
    "kind": "negative",
    "transform": "crop",
    "source": "real_001",
@@ -1055,7 +1055,7 @@
   },
   {
    "id": "real_001__screenshot",
-   "path": "/Users/meghana.padmanabhan/asurion-image-authenticity/wb_data/ml_v1/reuse/queries/real_001__screenshot.jpg",
+   "path": "/Users/<user>/insurance_firm-image-authenticity/wb_data/ml_v1/reuse/queries/real_001__screenshot.jpg",
    "kind": "negative",
    "transform": "screenshot",
    "source": "real_001",
@@ -1068,7 +1068,7 @@
   },
   {
    "id": "real_001__recompress",
-   "path": "/Users/meghana.padmanabhan/asurion-image-authenticity/wb_data/ml_v1/reuse/queries/real_001__recompress.jpg",
+   "path": "/Users/<user>/insurance_firm-image-authenticity/wb_data/ml_v1/reuse/queries/real_001__recompress.jpg",
    "kind": "negative",
    "transform": "recompress",
    "source": "real_001",
@@ -1081,7 +1081,7 @@
   },
   {
    "id": "real_001__relight",
-   "path": "/Users/meghana.padmanabhan/asurion-image-authenticity/wb_data/ml_v1/reuse/queries/real_001__relight.jpg",
+   "path": "/Users/<user>/insurance_firm-image-authenticity/wb_data/ml_v1/reuse/queries/real_001__relight.jpg",
    "kind": "negative",
    "transform": "relight",
    "source": "real_001",
@@ -1094,7 +1094,7 @@
   },
   {
    "id": "real_002__crop",
-   "path": "/Users/meghana.padmanabhan/asurion-image-authenticity/wb_data/ml_v1/reuse/queries/real_002__crop.jpg",
+   "path": "/Users/<user>/insurance_firm-image-authenticity/wb_data/ml_v1/reuse/queries/real_002__crop.jpg",
    "kind": "negative",
    "transform": "crop",
    "source": "real_002",
@@ -1107,7 +1107,7 @@
   },
   {
    "id": "real_002__screenshot",
-   "path": "/Users/meghana.padmanabhan/asurion-image-authenticity/wb_data/ml_v1/reuse/queries/real_002__screenshot.jpg",
+   "path": "/Users/<user>/insurance_firm-image-authenticity/wb_data/ml_v1/reuse/queries/real_002__screenshot.jpg",
    "kind": "negative",
    "transform": "screenshot",
    "source": "real_002",
@@ -1120,7 +1120,7 @@
   },
   {
    "id": "real_002__recompress",
-   "path": "/Users/meghana.padmanabhan/asurion-image-authenticity/wb_data/ml_v1/reuse/queries/real_002__recompress.jpg",
+   "path": "/Users/<user>/insurance_firm-image-authenticity/wb_data/ml_v1/reuse/queries/real_002__recompress.jpg",
    "kind": "negative",
    "transform": "recompress",
    "source": "real_002",
@@ -1133,7 +1133,7 @@
   },
   {
    "id": "real_002__relight",
-   "path": "/Users/meghana.padmanabhan/asurion-image-authenticity/wb_data/ml_v1/reuse/queries/real_002__relight.jpg",
+   "path": "/Users/<user>/insurance_firm-image-authenticity/wb_data/ml_v1/reuse/queries/real_002__relight.jpg",
    "kind": "negative",
    "transform": "relight",
    "source": "real_002",
@@ -1146,7 +1146,7 @@
   },
   {
    "id": "real_026__crop",
-   "path": "/Users/meghana.padmanabhan/asurion-image-authenticity/wb_data/ml_v1/reuse/queries/real_026__crop.jpg",
+   "path": "/Users/<user>/insurance_firm-image-authenticity/wb_data/ml_v1/reuse/queries/real_026__crop.jpg",
    "kind": "negative",
    "transform": "crop",
    "source": "real_026",
@@ -1159,7 +1159,7 @@
   },
   {
    "id": "real_026__screenshot",
-   "path": "/Users/meghana.padmanabhan/asurion-image-authenticity/wb_data/ml_v1/reuse/queries/real_026__screenshot.jpg",
+   "path": "/Users/<user>/insurance_firm-image-authenticity/wb_data/ml_v1/reuse/queries/real_026__screenshot.jpg",
    "kind": "negative",
    "transform": "screenshot",
    "source": "real_026",
@@ -1172,7 +1172,7 @@
   },
   {
    "id": "real_026__recompress",
-   "path": "/Users/meghana.padmanabhan/asurion-image-authenticity/wb_data/ml_v1/reuse/queries/real_026__recompress.jpg",
+   "path": "/Users/<user>/insurance_firm-image-authenticity/wb_data/ml_v1/reuse/queries/real_026__recompress.jpg",
    "kind": "negative",
    "transform": "recompress",
    "source": "real_026",
@@ -1185,7 +1185,7 @@
   },
   {
    "id": "real_026__relight",
-   "path": "/Users/meghana.padmanabhan/asurion-image-authenticity/wb_data/ml_v1/reuse/queries/real_026__relight.jpg",
+   "path": "/Users/<user>/insurance_firm-image-authenticity/wb_data/ml_v1/reuse/queries/real_026__relight.jpg",
    "kind": "negative",
    "transform": "relight",
    "source": "real_026",
@@ -1198,7 +1198,7 @@
   },
   {
    "id": "real_016__crop",
-   "path": "/Users/meghana.padmanabhan/asurion-image-authenticity/wb_data/ml_v1/reuse/queries/real_016__crop.jpg",
+   "path": "/Users/<user>/insurance_firm-image-authenticity/wb_data/ml_v1/reuse/queries/real_016__crop.jpg",
    "kind": "negative",
    "transform": "crop",
    "source": "real_016",
@@ -1211,7 +1211,7 @@
   },
   {
    "id": "real_016__screenshot",
-   "path": "/Users/meghana.padmanabhan/asurion-image-authenticity/wb_data/ml_v1/reuse/queries/real_016__screenshot.jpg",
+   "path": "/Users/<user>/insurance_firm-image-authenticity/wb_data/ml_v1/reuse/queries/real_016__screenshot.jpg",
    "kind": "negative",
    "transform": "screenshot",
    "source": "real_016",
@@ -1224,7 +1224,7 @@
   },
   {
    "id": "real_016__recompress",
-   "path": "/Users/meghana.padmanabhan/asurion-image-authenticity/wb_data/ml_v1/reuse/queries/real_016__recompress.jpg",
+   "path": "/Users/<user>/insurance_firm-image-authenticity/wb_data/ml_v1/reuse/queries/real_016__recompress.jpg",
    "kind": "negative",
    "transform": "recompress",
    "source": "real_016",
@@ -1237,7 +1237,7 @@
   },
   {
    "id": "real_016__relight",
-   "path": "/Users/meghana.padmanabhan/asurion-image-authenticity/wb_data/ml_v1/reuse/queries/real_016__relight.jpg",
+   "path": "/Users/<user>/insurance_firm-image-authenticity/wb_data/ml_v1/reuse/queries/real_016__relight.jpg",
    "kind": "negative",
    "transform": "relight",
    "source": "real_016",
@@ -1250,7 +1250,7 @@
   },
   {
    "id": "real_014__crop",
-   "path": "/Users/meghana.padmanabhan/asurion-image-authenticity/wb_data/ml_v1/reuse/queries/real_014__crop.jpg",
+   "path": "/Users/<user>/insurance_firm-image-authenticity/wb_data/ml_v1/reuse/queries/real_014__crop.jpg",
    "kind": "negative",
    "transform": "crop",
    "source": "real_014",
@@ -1263,7 +1263,7 @@
   },
   {
    "id": "real_014__screenshot",
-   "path": "/Users/meghana.padmanabhan/asurion-image-authenticity/wb_data/ml_v1/reuse/queries/real_014__screenshot.jpg",
+   "path": "/Users/<user>/insurance_firm-image-authenticity/wb_data/ml_v1/reuse/queries/real_014__screenshot.jpg",
    "kind": "negative",
    "transform": "screenshot",
    "source": "real_014",
@@ -1276,7 +1276,7 @@
   },
   {
    "id": "real_014__recompress",
-   "path": "/Users/meghana.padmanabhan/asurion-image-authenticity/wb_data/ml_v1/reuse/queries/real_014__recompress.jpg",
+   "path": "/Users/<user>/insurance_firm-image-authenticity/wb_data/ml_v1/reuse/queries/real_014__recompress.jpg",
    "kind": "negative",
    "transform": "recompress",
    "source": "real_014",
@@ -1289,7 +1289,7 @@
   },
   {
    "id": "real_014__relight",
-   "path": "/Users/meghana.padmanabhan/asurion-image-authenticity/wb_data/ml_v1/reuse/queries/real_014__relight.jpg",
+   "path": "/Users/<user>/insurance_firm-image-authenticity/wb_data/ml_v1/reuse/queries/real_014__relight.jpg",
    "kind": "negative",
    "transform": "relight",
    "source": "real_014",
@@ -1302,7 +1302,7 @@
   },
   {
    "id": "real_004__crop",
-   "path": "/Users/meghana.padmanabhan/asurion-image-authenticity/wb_data/ml_v1/reuse/queries/real_004__crop.jpg",
+   "path": "/Users/<user>/insurance_firm-image-authenticity/wb_data/ml_v1/reuse/queries/real_004__crop.jpg",
    "kind": "negative",
    "transform": "crop",
    "source": "real_004",
@@ -1315,7 +1315,7 @@
   },
   {
    "id": "real_004__screenshot",
-   "path": "/Users/meghana.padmanabhan/asurion-image-authenticity/wb_data/ml_v1/reuse/queries/real_004__screenshot.jpg",
+   "path": "/Users/<user>/insurance_firm-image-authenticity/wb_data/ml_v1/reuse/queries/real_004__screenshot.jpg",
    "kind": "negative",
    "transform": "screenshot",
    "source": "real_004",
@@ -1328,7 +1328,7 @@
   },
   {
    "id": "real_004__recompress",
-   "path": "/Users/meghana.padmanabhan/asurion-image-authenticity/wb_data/ml_v1/reuse/queries/real_004__recompress.jpg",
+   "path": "/Users/<user>/insurance_firm-image-authenticity/wb_data/ml_v1/reuse/queries/real_004__recompress.jpg",
    "kind": "negative",
    "transform": "recompress",
    "source": "real_004",
@@ -1341,7 +1341,7 @@
   },
   {
    "id": "real_004__relight",
-   "path": "/Users/meghana.padmanabhan/asurion-image-authenticity/wb_data/ml_v1/reuse/queries/real_004__relight.jpg",
+   "path": "/Users/<user>/insurance_firm-image-authenticity/wb_data/ml_v1/reuse/queries/real_004__relight.jpg",
    "kind": "negative",
    "transform": "relight",
    "source": "real_004",
@@ -1354,7 +1354,7 @@
   },
   {
    "id": "real_007__crop",
-   "path": "/Users/meghana.padmanabhan/asurion-image-authenticity/wb_data/ml_v1/reuse/queries/real_007__crop.jpg",
+   "path": "/Users/<user>/insurance_firm-image-authenticity/wb_data/ml_v1/reuse/queries/real_007__crop.jpg",
    "kind": "negative",
    "transform": "crop",
    "source": "real_007",
@@ -1367,7 +1367,7 @@
   },
   {
    "id": "real_007__screenshot",
-   "path": "/Users/meghana.padmanabhan/asurion-image-authenticity/wb_data/ml_v1/reuse/queries/real_007__screenshot.jpg",
+   "path": "/Users/<user>/insurance_firm-image-authenticity/wb_data/ml_v1/reuse/queries/real_007__screenshot.jpg",
    "kind": "negative",
    "transform": "screenshot",
    "source": "real_007",
@@ -1380,7 +1380,7 @@
   },
   {
    "id": "real_007__recompress",
-   "path": "/Users/meghana.padmanabhan/asurion-image-authenticity/wb_data/ml_v1/reuse/queries/real_007__recompress.jpg",
+   "path": "/Users/<user>/insurance_firm-image-authenticity/wb_data/ml_v1/reuse/queries/real_007__recompress.jpg",
    "kind": "negative",
    "transform": "recompress",
    "source": "real_007",
@@ -1393,7 +1393,7 @@
   },
   {
    "id": "real_007__relight",
-   "path": "/Users/meghana.padmanabhan/asurion-image-authenticity/wb_data/ml_v1/reuse/queries/real_007__relight.jpg",
+   "path": "/Users/<user>/insurance_firm-image-authenticity/wb_data/ml_v1/reuse/queries/real_007__relight.jpg",
    "kind": "negative",
    "transform": "relight",
    "source": "real_007",
@@ -1406,7 +1406,7 @@
   },
   {
    "id": "real_022__crop",
-   "path": "/Users/meghana.padmanabhan/asurion-image-authenticity/wb_data/ml_v1/reuse/queries/real_022__crop.jpg",
+   "path": "/Users/<user>/insurance_firm-image-authenticity/wb_data/ml_v1/reuse/queries/real_022__crop.jpg",
    "kind": "negative",
    "transform": "crop",
    "source": "real_022",
@@ -1419,7 +1419,7 @@
   },
   {
    "id": "real_022__screenshot",
-   "path": "/Users/meghana.padmanabhan/asurion-image-authenticity/wb_data/ml_v1/reuse/queries/real_022__screenshot.jpg",
+   "path": "/Users/<user>/insurance_firm-image-authenticity/wb_data/ml_v1/reuse/queries/real_022__screenshot.jpg",
    "kind": "negative",
    "transform": "screenshot",
    "source": "real_022",
@@ -1432,7 +1432,7 @@
   },
   {
    "id": "real_022__recompress",
-   "path": "/Users/meghana.padmanabhan/asurion-image-authenticity/wb_data/ml_v1/reuse/queries/real_022__recompress.jpg",
+   "path": "/Users/<user>/insurance_firm-image-authenticity/wb_data/ml_v1/reuse/queries/real_022__recompress.jpg",
    "kind": "negative",
    "transform": "recompress",
    "source": "real_022",
@@ -1445,7 +1445,7 @@
   },
   {
    "id": "real_022__relight",
-   "path": "/Users/meghana.padmanabhan/asurion-image-authenticity/wb_data/ml_v1/reuse/queries/real_022__relight.jpg",
+   "path": "/Users/<user>/insurance_firm-image-authenticity/wb_data/ml_v1/reuse/queries/real_022__relight.jpg",
    "kind": "negative",
    "transform": "relight",
    "source": "real_022",
@@ -1458,7 +1458,7 @@
   },
   {
    "id": "real_005__crop",
-   "path": "/Users/meghana.padmanabhan/asurion-image-authenticity/wb_data/ml_v1/reuse/queries/real_005__crop.jpg",
+   "path": "/Users/<user>/insurance_firm-image-authenticity/wb_data/ml_v1/reuse/queries/real_005__crop.jpg",
    "kind": "negative",
    "transform": "crop",
    "source": "real_005",
@@ -1471,7 +1471,7 @@
   },
   {
    "id": "real_005__screenshot",
-   "path": "/Users/meghana.padmanabhan/asurion-image-authenticity/wb_data/ml_v1/reuse/queries/real_005__screenshot.jpg",
+   "path": "/Users/<user>/insurance_firm-image-authenticity/wb_data/ml_v1/reuse/queries/real_005__screenshot.jpg",
    "kind": "negative",
    "transform": "screenshot",
    "source": "real_005",
@@ -1484,7 +1484,7 @@
   },
   {
    "id": "real_005__recompress",
-   "path": "/Users/meghana.padmanabhan/asurion-image-authenticity/wb_data/ml_v1/reuse/queries/real_005__recompress.jpg",
+   "path": "/Users/<user>/insurance_firm-image-authenticity/wb_data/ml_v1/reuse/queries/real_005__recompress.jpg",
    "kind": "negative",
    "transform": "recompress",
    "source": "real_005",
@@ -1497,7 +1497,7 @@
   },
   {
    "id": "real_005__relight",
-   "path": "/Users/meghana.padmanabhan/asurion-image-authenticity/wb_data/ml_v1/reuse/queries/real_005__relight.jpg",
+   "path": "/Users/<user>/insurance_firm-image-authenticity/wb_data/ml_v1/reuse/queries/real_005__relight.jpg",
    "kind": "negative",
    "transform": "relight",
    "source": "real_005",
@@ -1510,7 +1510,7 @@
   },
   {
    "id": "real_021__crop",
-   "path": "/Users/meghana.padmanabhan/asurion-image-authenticity/wb_data/ml_v1/reuse/queries/real_021__crop.jpg",
+   "path": "/Users/<user>/insurance_firm-image-authenticity/wb_data/ml_v1/reuse/queries/real_021__crop.jpg",
    "kind": "negative",
    "transform": "crop",
    "source": "real_021",
@@ -1523,7 +1523,7 @@
   },
   {
    "id": "real_021__screenshot",
-   "path": "/Users/meghana.padmanabhan/asurion-image-authenticity/wb_data/ml_v1/reuse/queries/real_021__screenshot.jpg",
+   "path": "/Users/<user>/insurance_firm-image-authenticity/wb_data/ml_v1/reuse/queries/real_021__screenshot.jpg",
    "kind": "negative",
    "transform": "screenshot",
    "source": "real_021",
@@ -1536,7 +1536,7 @@
   },
   {
    "id": "real_021__recompress",
-   "path": "/Users/meghana.padmanabhan/asurion-image-authenticity/wb_data/ml_v1/reuse/queries/real_021__recompress.jpg",
+   "path": "/Users/<user>/insurance_firm-image-authenticity/wb_data/ml_v1/reuse/queries/real_021__recompress.jpg",
    "kind": "negative",
    "transform": "recompress",
    "source": "real_021",
@@ -1549,7 +1549,7 @@
   },
   {
    "id": "real_021__relight",
-   "path": "/Users/meghana.padmanabhan/asurion-image-authenticity/wb_data/ml_v1/reuse/queries/real_021__relight.jpg",
+   "path": "/Users/<user>/insurance_firm-image-authenticity/wb_data/ml_v1/reuse/queries/real_021__relight.jpg",
    "kind": "negative",
    "transform": "relight",
    "source": "real_021",

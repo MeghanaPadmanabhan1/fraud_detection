@@ -1,0 +1,39 @@
+{
+ "connected_as": "<workspace-user>",
+ "postgres": "PostgreSQL 16.16 (b5be8fd) on aarch64-un",
+ "synced_review_queue_rows_min_max": [
+  57,
+  1,
+  57
+ ],
+ "queue_top3": [
+  [
+   "1",
+   "CLM-1058",
+   "likely_fraud",
+   "199.0"
+  ],
+  [
+   "2",
+   "CLM-1056",
+   "likely_fraud",
+   "899.0"
+  ],
+  [
+   "3",
+   "CLM-1054",
+   "likely_fraud",
+   "649.0"
+  ]
+ ],
+ "write_then_read": [
+  "<workspace-user>",
+  "lakebase_setup"
+ ],
+ "write_read_ms": 14.7,
+ "tables": [
+  "ops.audit_log",
+  "ops.review_decisions",
+  "public.review_queue"
+ ]
+}

@@ -4,6 +4,7 @@ import pandas as pd
 import streamlit as st
 
 import backend as B
+import lakebase
 import plain
 import ui
 
@@ -91,3 +92,23 @@ if len(L):
     a, b = st.columns(2)
     a.metric("Human ↔ model agreement", f"{L.agrees_with_model.mean():.0%}")
     b.metric("Human ↔ gold-set agreement", f"{L.matches_gold_set.mean():.0%}")
+
+
+st.divider()
+st.markdown("### Operational store (Lakebase)")
+st.caption("Each decision is also written to a managed Postgres database (Lakebase) in milliseconds, next to the "
+           "Delta record, so the live queue never waits on a warehouse.")
+_s = lakebase.status()
+if _s["ok"]:
+    m1, m2, m3 = st.columns(3)
+    m1.metric("Decisions stored", _s["decisions"]); m2.metric("Audit entries", _s["audit"])
+    m3.metric("Round trip", f"{_s['ms']} ms")
+    _ok, _rows = lakebase.recent_decisions(10)
+    if _rows:
+        st.dataframe(pd.DataFrame(_rows, columns=["When", "Claim", "Decision", "Reason", "Reviewer", "Model said"]),
+                     hide_index=True, use_container_width=True)
+    else:
+        st.caption("No decisions saved yet. Label a claim above and it will appear here.")
+else:
+    st.info("Lakebase is not reachable right now, so decisions are being saved to Delta only. "
+            f"({_s['error'][:120]})")

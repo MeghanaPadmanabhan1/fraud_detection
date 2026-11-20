@@ -6,3 +6,11 @@ env:
     value: image_authenticity.workbench
   - name: SSCD_ENDPOINT
     value: image-authenticity-sscd
+  - name: WB_LAKEFLOW_SCHEMA
+    value: image_authenticity.lakeflow
+  - name: GENIE_SPACE_ID
+    value: "<genie-space-id>"
+  - name: LAKEBASE_INSTANCE
+    value: fraud-workbench-db
+  - name: LAKEBASE_DB
+    value: fraud_ops

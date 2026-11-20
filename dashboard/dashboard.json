@@ -66,7 +66,7 @@
               "lines": [
                 "# Image Authenticity POC — Deepfake / Shallow-fake / Provenance\n",
                 "\n",
-                "Modular, config-driven fraud-image detection on Databricks (Asurion POC). Each detection technique is a swappable **slot**; scores combine into one composite **fraud score** + a human-readable narrative for the adjuster. Labels shown are the known ground truth of the sample set (`authentic` = real photos, `shallow_fake` = programmatically edited, `deepfake` = generated via the Gemini image endpoint). Use this to read how each signal separates the classes and to calibrate thresholds."
+                "Modular, config-driven fraud-image detection on Databricks (insurance_firm POC). Each detection technique is a swappable **slot**; scores combine into one composite **fraud score** + a human-readable narrative for the adjuster. Labels shown are the known ground truth of the sample set (`authentic` = real photos, `shallow_fake` = programmatically edited, `deepfake` = generated via the Gemini image endpoint). Use this to read how each signal separates the classes and to calibrate thresholds."
               ]
             }
           },

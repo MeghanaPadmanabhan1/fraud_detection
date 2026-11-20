@@ -1,0 +1,92 @@
+# Pipeline event log (update 25d39f9e, newest last)
+
+2026-11-20T19:09:45 INFO Update 704782 started by API_CALL.
+2026-11-20T19:09:48 INFO Update 704782 is WAITING_FOR_RESOURCES.
+2026-11-20T19:09:58 INFO Update 704782 is INITIALIZING.
+2026-11-20T19:10:14 ERROR Failed to resolve flow: 'image_authenticity.lakeflow.silver_claims'.
+2026-11-20T19:10:14 WARN Failed to resolve flow due to upstream failure: 'image_authenticity.lakeflow.gold_claim_decisions'.
+2026-11-20T19:10:14 WARN Failed to resolve flow due to upstream failure: 'image_authenticity.lakeflow.gold_review_queue'.
+2026-11-20T19:10:14 WARN Failed to resolve flow due to upstream failure: 'image_authenticity.lakeflow.gold_fraud_summary'.
+2026-11-20T19:10:14 INFO Dataset `image_authenticity`.`lakeflow`.`bronze_claim_images` defined as STREAMING_TABLE.
+2026-11-20T19:10:15 INFO Dataset `image_authenticity`.`lakeflow`.`bronze_claims` defined as STREAMING_TABLE.
+2026-11-20T19:10:15 ERROR Update 704782 has failed. Failed to analyze flow 'image_authenticity.lakeflow.silver_claims'.
+2026-11-20T19:10:18 INFO Update d287aa started by RETRY_ON_FAILURE.
+2026-11-20T19:10:41 INFO Update d287aa is INITIALIZING.
+2026-11-20T19:10:44 ERROR Failed to resolve flow: 'image_authenticity.lakeflow.silver_claims'.
+2026-11-20T19:10:44 WARN Failed to resolve flow due to upstream failure: 'image_authenticity.lakeflow.gold_claim_decisions'.
+2026-11-20T19:10:44 WARN Failed to resolve flow due to upstream failure: 'image_authenticity.lakeflow.gold_review_queue'.
+2026-11-20T19:10:44 WARN Failed to resolve flow due to upstream failure: 'image_authenticity.lakeflow.gold_fraud_summary'.
+2026-11-20T19:10:45 INFO Dataset `image_authenticity`.`lakeflow`.`bronze_claims` defined as STREAMING_TABLE.
+2026-11-20T19:10:45 INFO Dataset `image_authenticity`.`lakeflow`.`bronze_claim_images` defined as STREAMING_TABLE.
+2026-11-20T19:10:45 ERROR Update d287aa has failed. Failed to analyze flow 'image_authenticity.lakeflow.silver_claims'.
+2026-11-20T19:10:48 INFO Update fdf4d4 started by RETRY_ON_FAILURE.
+2026-11-20T19:11:31 INFO Update fdf4d4 is INITIALIZING.
+2026-11-20T19:11:35 ERROR Failed to resolve flow: 'image_authenticity.lakeflow.silver_claims'.
+2026-11-20T19:11:35 WARN Failed to resolve flow due to upstream failure: 'image_authenticity.lakeflow.gold_claim_decisions'.
+2026-11-20T19:11:35 WARN Failed to resolve flow due to upstream failure: 'image_authenticity.lakeflow.gold_review_queue'.
+2026-11-20T19:11:35 WARN Failed to resolve flow due to upstream failure: 'image_authenticity.lakeflow.gold_fraud_summary'.
+2026-11-20T19:11:35 INFO Dataset `image_authenticity`.`lakeflow`.`bronze_claim_images` defined as STREAMING_TABLE.
+2026-11-20T19:11:35 INFO Dataset `image_authenticity`.`lakeflow`.`bronze_claims` defined as STREAMING_TABLE.
+2026-11-20T19:11:35 ERROR Update fdf4d4 has failed. Failed to analyze flow 'image_authenticity.lakeflow.silver_claims'.
+2026-11-20T19:11:38 INFO Update a0c4de started by RETRY_ON_FAILURE.
+2026-11-20T19:13:01 INFO Update a0c4de is INITIALIZING.
+2026-11-20T19:13:04 ERROR Failed to resolve flow: 'image_authenticity.lakeflow.silver_claims'.
+2026-11-20T19:13:05 WARN Failed to resolve flow due to upstream failure: 'image_authenticity.lakeflow.gold_claim_decisions'.
+2026-11-20T19:13:05 WARN Failed to resolve flow due to upstream failure: 'image_authenticity.lakeflow.gold_review_queue'.
+2026-11-20T19:13:05 WARN Failed to resolve flow due to upstream failure: 'image_authenticity.lakeflow.gold_fraud_summary'.
+2026-11-20T19:13:05 INFO Dataset `image_authenticity`.`lakeflow`.`bronze_claims` defined as STREAMING_TABLE.
+2026-11-20T19:13:05 INFO Dataset `image_authenticity`.`lakeflow`.`bronze_claim_images` defined as STREAMING_TABLE.
+2026-11-20T19:13:05 ERROR Update a0c4de has failed. Failed to analyze flow 'image_authenticity.lakeflow.silver_claims'.
+2026-11-20T19:13:08 INFO Update 29d7c9 started by RETRY_ON_FAILURE.
+2026-11-20T19:15:51 INFO Update 29d7c9 is INITIALIZING.
+2026-11-20T19:15:55 ERROR Failed to resolve flow: 'image_authenticity.lakeflow.silver_claims'.
+2026-11-20T19:15:55 WARN Failed to resolve flow due to upstream failure: 'image_authenticity.lakeflow.gold_claim_decisions'.
+2026-11-20T19:15:55 WARN Failed to resolve flow due to upstream failure: 'image_authenticity.lakeflow.gold_review_queue'.
+2026-11-20T19:15:55 WARN Failed to resolve flow due to upstream failure: 'image_authenticity.lakeflow.gold_fraud_summary'.
+2026-11-20T19:15:55 INFO Dataset `image_authenticity`.`lakeflow`.`bronze_claims` defined as STREAMING_TABLE.
+2026-11-20T19:15:56 INFO Dataset `image_authenticity`.`lakeflow`.`bronze_claim_images` defined as STREAMING_TABLE.
+2026-11-20T19:15:56 ERROR Update 29d7c9 has failed. Failed to analyze flow 'image_authenticity.lakeflow.silver_claims'.
+2026-11-20T19:15:58 INFO Update 86a243 started by RETRY_ON_FAILURE.
+2026-11-20T19:17:19 INFO Update 86a243 is CANCELED.
+2026-11-20T19:17:44 INFO Update 25d39f started by API_CALL.
+2026-11-20T19:17:51 INFO Update 25d39f is INITIALIZING.
+2026-11-20T19:17:56 INFO Update 25d39f is RESETTING.
+2026-11-20T19:17:56 INFO Update 25d39f is SETTING_UP_TABLES.
+2026-11-20T19:18:03 INFO Dataset `image_authenticity`.`lakeflow`.`gold_review_queue` defined as MATERIALIZED_VIEW.
+2026-11-20T19:18:03 INFO Dataset `image_authenticity`.`lakeflow`.`gold_fraud_summary` defined as MATERIALIZED_VIEW.
+2026-11-20T19:18:03 INFO Dataset `image_authenticity`.`lakeflow`.`bronze_claims` defined as STREAMING_TABLE.
+2026-11-20T19:18:03 INFO Dataset `image_authenticity`.`lakeflow`.`bronze_claim_images` defined as STREAMING_TABLE.
+2026-11-20T19:18:03 INFO Dataset `image_authenticity`.`lakeflow`.`gold_claim_decisions` defined as MATERIALIZED_VIEW.
+2026-11-20T19:18:03 INFO Dataset `image_authenticity`.`lakeflow`.`silver_claims` defined as MATERIALIZED_VIEW.
+2026-11-20T19:18:03 INFO Update 25d39f is RUNNING.
+2026-11-20T19:18:03 INFO Flow 'image_authenticity.lakeflow.bronze_claim_images' is QUEUED.
+2026-11-20T19:18:03 INFO Flow 'image_authenticity.lakeflow.silver_claims' is QUEUED.
+2026-11-20T19:18:03 INFO Flow 'image_authenticity.lakeflow.gold_review_queue' is QUEUED.
+2026-11-20T19:18:03 INFO Flow 'image_authenticity.lakeflow.gold_fraud_summary' is QUEUED.
+2026-11-20T19:18:03 INFO Flow 'image_authenticity.lakeflow.gold_claim_decisions' is QUEUED.
+2026-11-20T19:18:03 INFO Flow 'image_authenticity.lakeflow.bronze_claims' is QUEUED.
+2026-11-20T19:18:03 INFO Flow 'image_authenticity.lakeflow.bronze_claims' is STARTING.
+2026-11-20T19:18:04 INFO Flow 'image_authenticity.lakeflow.bronze_claims' is RUNNING.
+2026-11-20T19:18:05 INFO Flow 'image_authenticity.lakeflow.bronze_claim_images' is STARTING.
+2026-11-20T19:18:05 INFO Flow 'image_authenticity.lakeflow.bronze_claim_images' is RUNNING.
+2026-11-20T19:18:11 INFO Completed a streaming update of 'image_authenticity.lakeflow.bronze_claims'.
+2026-11-20T19:18:11 INFO Completed a streaming update of 'image_authenticity.lakeflow.bronze_claim_images'.
+2026-11-20T19:18:11 INFO Flow 'image_authenticity.lakeflow.bronze_claim_images' has COMPLETED.
+2026-11-20T19:18:11 INFO Flow 'image_authenticity.lakeflow.bronze_claims' has COMPLETED.
+2026-11-20T19:18:11 INFO Flow 'image_authenticity.lakeflow.silver_claims' is PLANNING.
+2026-11-20T19:18:12 INFO Flow 'image_authenticity.lakeflow.silver_claims' is STARTING.
+2026-11-20T19:18:12 INFO Flow 'image_authenticity.lakeflow.silver_claims' is RUNNING.
+2026-11-20T19:18:16 INFO Flow 'image_authenticity.lakeflow.silver_claims' has COMPLETED.
+2026-11-20T19:18:16 INFO Flow 'image_authenticity.lakeflow.gold_claim_decisions' is PLANNING.
+2026-11-20T19:18:17 INFO Flow 'image_authenticity.lakeflow.gold_claim_decisions' is STARTING.
+2026-11-20T19:18:17 INFO Flow 'image_authenticity.lakeflow.gold_claim_decisions' is RUNNING.
+2026-11-20T19:18:20 INFO Flow 'image_authenticity.lakeflow.gold_claim_decisions' has COMPLETED.
+2026-11-20T19:18:20 INFO Flow 'image_authenticity.lakeflow.gold_fraud_summary' is PLANNING.
+2026-11-20T19:18:20 INFO Flow 'image_authenticity.lakeflow.gold_review_queue' is PLANNING.
+2026-11-20T19:18:20 INFO Flow 'image_authenticity.lakeflow.gold_review_queue' is STARTING.
+2026-11-20T19:18:20 INFO Flow 'image_authenticity.lakeflow.gold_review_queue' is RUNNING.
+2026-11-20T19:18:20 INFO Flow 'image_authenticity.lakeflow.gold_fraud_summary' is STARTING.
+2026-11-20T19:18:20 INFO Flow 'image_authenticity.lakeflow.gold_fraud_summary' is RUNNING.
+2026-11-20T19:18:23 INFO Flow 'image_authenticity.lakeflow.gold_fraud_summary' has COMPLETED.
+2026-11-20T19:18:23 INFO Flow 'image_authenticity.lakeflow.gold_review_queue' has COMPLETED.
+2026-11-20T19:18:23 INFO Update 25d39f is COMPLETED.

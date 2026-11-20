@@ -1,0 +1,35 @@
+# Pre-merge test run on branch claude/e2e-build (29 checks)
+# date: 2026-11-20T20:06:02Z  tested: a fresh clone of the pushed branch, against workspace e2 and the live app
+# History: first run found 5 failures. 3 were mistakes in the test itself (stale stub, fake warehouse id, a cache folder).
+# 1 was a wrong count in my own notes (6 pipeline datasets, not 7). 1 was real: the SSCD endpoint had silently reverted to scale-to-zero ON; it was re-applied and the final run below confirms it is OFF.
+
+PASS [static] all 95 Python files compile
+PASS [static] all 22 JSON files parse
+PASS [static] app.yaml parses and has the expected settings  -- ['DATABRICKS_WAREHOUSE_ID', 'GENIE_SPACE_ID', 'LAKEBASE_DB', 'LAKEBASE_INSTANCE', 'SSCD_ENDPOINT', 'WB_LAKEFLOW_SCHEMA', 'WB_SCHEMA']
+PASS [static] pipeline SQL defines the 6 datasets (2 bronze, 1 silver, 3 gold)
+PASS [static] requirements pin an SDK with the Lakebase and Genie APIs and psycopg
+PASS [hygiene] no customer name, personal identifiers, workspace IDs or secrets in any tracked text file
+PASS [hygiene] no binary files (images, weights) added versus main  -- []
+PASS [hygiene] largest added or changed file is under 1 MB  -- wb_data/ml_v1/items.json 53 KB
+PASS [merge] merges into main with no conflicts  -- clean
+PASS [merge] change set limited to expected areas  -- 44 files
+PASS [parity] live e2 app code equals the branch except app.yaml (placeholders vs real values) and identifier placeholders in README  -- Files <live-export>/README.md and app/README.md differ; Files <live-export>/app.yaml and app/app.yaml differ
+PASS [data] pipeline row counts match the committed evidence (66 / 66 / 57)  -- {'silver': 66, 'lakebase_synced': 57, 'gold_decisions': 66, 'queue': 57}
+PASS [data] Lakebase synced queue equals the Lakeflow gold queue
+PASS [data] headline numbers in the deck match the data (51/52 flagged, 43 firm, 0 genuine firm, 6 genuine flagged, $33,919 of $34,618)  -- [51, 52, 43, 0, 6, 33919, 34618]
+PASS [data] silver has no rows breaking its quality rules
+PASS [data] Lakebase evidence records 57 synced rows and a sub-100 ms write  -- 14.7 ms
+PASS [data] deck quotes the same numbers
+PASS [unit] lakebase does nothing and never raises when not configured
+PASS [unit] an unreachable Lakebase fails soft, then the circuit breaker answers instantly  -- first 2.0s, second 0.0 ms
+PASS [unit] saving a review decision still writes to Delta and does not raise when Lakebase is down  -- 2 Delta writes
+PASS [unit] genie client parses a text-only answer
+PASS [live] Genie answers the headline question with the right number (43)  -- rows=[['43']]
+PASS [live] deployed app is healthy
+PASS [live] SSCD endpoint is READY with scale-to-zero off
+PASS [live] Lakeflow pipeline exists and last update completed  -- COMPLETED
+PASS [pages] Business view renders with the right headline  -- {'Fraud claims flagged': '51 of 52', 'Money at stake flagged': '$33,919', 'Firm “likely fraud” calls': '43', 'Genuine claims sent to a perso
+PASS [pages] Ask the data renders with sample questions  -- 5 buttons
+PASS [pages] Ask the data returns an answer to a sample question  -- 2 messages
+PASS [pages] Review queue renders and shows the Lakebase panel or its fallback
+SUMMARY: 29 passed, 0 failed, 29 total
