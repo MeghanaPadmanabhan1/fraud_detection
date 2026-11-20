@@ -1,15 +1,15 @@
 # Image Authenticity POC — Implementation, Status & Performance
 
-**Asurion × Databricks** · AI-generated-image fraud detection · built on `e2-demo-field-eng`
+**insurance_firm × Databricks** · AI-generated-image fraud detection · built on `<workspace>`
 Last updated: 2026-10-01
 
-This POC delivers the capability Asurion's current pipeline lacks: detecting
+This POC delivers the capability insurance_firm's current pipeline lacks: detecting
 **AI-generated (deepfake)** and **manipulated (shallow-fake)** claim images, plus
 **provenance / watermark** checks — as a **modular, swappable framework** where each
 detection step can host multiple interchangeable models for experimentation.
 
 > Code links point to the deployed workspace copy under
-> `/Workspace/Users/meghana.padmanabhan@databricks.com/asurion-image-authenticity/`.
+> `/Workspace/Users/<workspace-user>/insurance_firm-image-authenticity/`.
 
 ---
 
@@ -30,11 +30,11 @@ Core framework code:
 
 | File | Role |
 |---|---|
-| [`core.py`](https://e2-demo-field-eng.cloud.databricks.com/#workspace/Users/meghana.padmanabhan@databricks.com/asurion-image-authenticity/image_authenticity/core.py) | `Detector` interface + registry (`@register`, `build`, `available`) |
-| [`config.py`](https://e2-demo-field-eng.cloud.databricks.com/#workspace/Users/meghana.padmanabhan@databricks.com/asurion-image-authenticity/image_authenticity/config.py) | which model fills each functionality + arm weights |
-| [`pipeline.py`](https://e2-demo-field-eng.cloud.databricks.com/#workspace/Users/meghana.padmanabhan@databricks.com/asurion-image-authenticity/image_authenticity/pipeline.py) | runs the selected models over an image |
-| [`composite.py`](https://e2-demo-field-eng.cloud.databricks.com/#workspace/Users/meghana.padmanabhan@databricks.com/asurion-image-authenticity/image_authenticity/composite.py) | blends scores → fraud score + narrative (asymmetric provenance override) |
-| [`fmapi.py`](https://e2-demo-field-eng.cloud.databricks.com/#workspace/Users/meghana.padmanabhan@databricks.com/asurion-image-authenticity/image_authenticity/fmapi.py) | version-independent Foundation Model API calls |
+| [`core.py`](https://<workspace-host>/#workspace/Users/<workspace-user>/insurance_firm-image-authenticity/image_authenticity/core.py) | `Detector` interface + registry (`@register`, `build`, `available`) |
+| [`config.py`](https://<workspace-host>/#workspace/Users/<workspace-user>/insurance_firm-image-authenticity/image_authenticity/config.py) | which model fills each functionality + arm weights |
+| [`pipeline.py`](https://<workspace-host>/#workspace/Users/<workspace-user>/insurance_firm-image-authenticity/image_authenticity/pipeline.py) | runs the selected models over an image |
+| [`composite.py`](https://<workspace-host>/#workspace/Users/<workspace-user>/insurance_firm-image-authenticity/image_authenticity/composite.py) | blends scores → fraud score + narrative (asymmetric provenance override) |
+| [`fmapi.py`](https://<workspace-host>/#workspace/Users/<workspace-user>/insurance_firm-image-authenticity/image_authenticity/fmapi.py) | version-independent Foundation Model API calls |
 
 ---
 
@@ -42,14 +42,14 @@ Core framework code:
 
 | Arm | Functionality | Casts net on | Model(s) implemented | Library / service | Code |
 |---|---|---|---|---|---|
-| Deepfake | Spectral | Whole-image AI via frequency artifacts | FFT radial power spectrum; DCT high-freq energy | `numpy.fft`, `opencv` (`cv2.dct`) | [`spectral.py`](https://e2-demo-field-eng.cloud.databricks.com/#workspace/Users/meghana.padmanabhan@databricks.com/asurion-image-authenticity/image_authenticity/detectors/spectral.py) |
-| Deepfake | ELA uniformity | Suspiciously uniform recompression error | ELA uniformity (q90) | `opencv`, `numpy` | [`ela.py`](https://e2-demo-field-eng.cloud.databricks.com/#workspace/Users/meghana.padmanabhan@databricks.com/asurion-image-authenticity/image_authenticity/detectors/ela.py) |
-| Deepfake | **Learned (VLM)** | AI generation + edits + device ID + context | Claude Sonnet 5, GPT-5, Gemini 3.1 Pro, Llama-4 Maverick | Databricks **Foundation Model API** via [`fmapi.py`](https://e2-demo-field-eng.cloud.databricks.com/#workspace/Users/meghana.padmanabhan@databricks.com/asurion-image-authenticity/image_authenticity/fmapi.py) | [`vlm.py`](https://e2-demo-field-eng.cloud.databricks.com/#workspace/Users/meghana.padmanabhan@databricks.com/asurion-image-authenticity/image_authenticity/detectors/vlm.py) |
-| Shallow-fake | ELA heatmap | Localized edited region (+ adjuster heatmap) | ELA localized hotspots (q90) | `opencv`, `numpy` | [`ela.py`](https://e2-demo-field-eng.cloud.databricks.com/#workspace/Users/meghana.padmanabhan@databricks.com/asurion-image-authenticity/image_authenticity/detectors/ela.py) |
-| Shallow-fake | Copy-move | Region cloned within same image | ORB keypoints; SIFT keypoints | `opencv` (`ORB`, `SIFT`, `BFMatcher`) | [`copy_move.py`](https://e2-demo-field-eng.cloud.databricks.com/#workspace/Users/meghana.padmanabhan@databricks.com/asurion-image-authenticity/image_authenticity/detectors/copy_move.py) |
-| Shallow-fake | Noise / splice | Region spliced from another source | Noise-residual inconsistency | `opencv`, `numpy` | [`noise.py`](https://e2-demo-field-eng.cloud.databricks.com/#workspace/Users/meghana.padmanabhan@databricks.com/asurion-image-authenticity/image_authenticity/detectors/noise.py) |
-| Shallow-fake | JPEG ghost | Region with different prior compression | JPEG ghost (quality sweep) | `opencv`, `numpy` | [`jpeg_ghost.py`](https://e2-demo-field-eng.cloud.databricks.com/#workspace/Users/meghana.padmanabhan@databricks.com/asurion-image-authenticity/image_authenticity/detectors/jpeg_ghost.py) |
-| Provenance | Watermark / C2PA | Verifiable AI-origin declaration | C2PA + IPTC `trainedAlgorithmicMedia` + SynthID stub | `Pillow` (EXIF) + byte-scan | [`watermark.py`](https://e2-demo-field-eng.cloud.databricks.com/#workspace/Users/meghana.padmanabhan@databricks.com/asurion-image-authenticity/image_authenticity/detectors/watermark.py) |
+| Deepfake | Spectral | Whole-image AI via frequency artifacts | FFT radial power spectrum; DCT high-freq energy | `numpy.fft`, `opencv` (`cv2.dct`) | [`spectral.py`](https://<workspace-host>/#workspace/Users/<workspace-user>/insurance_firm-image-authenticity/image_authenticity/detectors/spectral.py) |
+| Deepfake | ELA uniformity | Suspiciously uniform recompression error | ELA uniformity (q90) | `opencv`, `numpy` | [`ela.py`](https://<workspace-host>/#workspace/Users/<workspace-user>/insurance_firm-image-authenticity/image_authenticity/detectors/ela.py) |
+| Deepfake | **Learned (VLM)** | AI generation + edits + device ID + context | Claude Sonnet 5, GPT-5, Gemini 3.1 Pro, Llama-4 Maverick | Databricks **Foundation Model API** via [`fmapi.py`](https://<workspace-host>/#workspace/Users/<workspace-user>/insurance_firm-image-authenticity/image_authenticity/fmapi.py) | [`vlm.py`](https://<workspace-host>/#workspace/Users/<workspace-user>/insurance_firm-image-authenticity/image_authenticity/detectors/vlm.py) |
+| Shallow-fake | ELA heatmap | Localized edited region (+ adjuster heatmap) | ELA localized hotspots (q90) | `opencv`, `numpy` | [`ela.py`](https://<workspace-host>/#workspace/Users/<workspace-user>/insurance_firm-image-authenticity/image_authenticity/detectors/ela.py) |
+| Shallow-fake | Copy-move | Region cloned within same image | ORB keypoints; SIFT keypoints | `opencv` (`ORB`, `SIFT`, `BFMatcher`) | [`copy_move.py`](https://<workspace-host>/#workspace/Users/<workspace-user>/insurance_firm-image-authenticity/image_authenticity/detectors/copy_move.py) |
+| Shallow-fake | Noise / splice | Region spliced from another source | Noise-residual inconsistency | `opencv`, `numpy` | [`noise.py`](https://<workspace-host>/#workspace/Users/<workspace-user>/insurance_firm-image-authenticity/image_authenticity/detectors/noise.py) |
+| Shallow-fake | JPEG ghost | Region with different prior compression | JPEG ghost (quality sweep) | `opencv`, `numpy` | [`jpeg_ghost.py`](https://<workspace-host>/#workspace/Users/<workspace-user>/insurance_firm-image-authenticity/image_authenticity/detectors/jpeg_ghost.py) |
+| Provenance | Watermark / C2PA | Verifiable AI-origin declaration | C2PA + IPTC `trainedAlgorithmicMedia` + SynthID stub | `Pillow` (EXIF) + byte-scan | [`watermark.py`](https://<workspace-host>/#workspace/Users/<workspace-user>/insurance_firm-image-authenticity/image_authenticity/detectors/watermark.py) |
 
 **Design intent:** the baseline deliberately uses lightweight, dependency-free
 techniques (OpenCV/NumPy/Pillow) + managed Foundation Models — no training, no model
@@ -136,7 +136,7 @@ content vs. a string; fixed in the FMAPI helper.)
 ### 🟡 Partial / known weak spots
 - Shallow-fake detection is strong on real phones (7/8) but weak on flowers and on the
   **local-recompress** tactic — the forensic ELA/JPEG-ghost detectors need tuning or trained models.
-- Thresholds calibrated on 54 synthetic/curated images — recalibrate on Asurion's real suspect set.
+- Thresholds calibrated on 54 synthetic/curated images — recalibrate on insurance_firm's real suspect set.
 
 ### ⬜ TBD — more functionalities & model options we could add
 
@@ -155,7 +155,7 @@ content vs. a string; fixed in the FMAPI helper.)
 - **Real SynthID verifier** (Google-proprietary; stubbed today, drop-in ready).
 - Full **C2PA signature verification** via the `c2pa` library (vs. today's tag scan).
 
-**Beyond this POC's scope — the rest of Asurion's 8-model vision**
+**Beyond this POC's scope — the rest of insurance_firm's 8-model vision**
 - Reverse-image / external velocity, internal velocity (perceptual-hash / vector dedup),
   OCR (`ai_extract` / Textract), image recognition & contextual analysis (partially
   covered today by the VLM's device-ID + context output).
@@ -163,7 +163,7 @@ content vs. a string; fixed in the FMAPI helper.)
 **Delivery mechanics for heavy models (recommended):** serve big GPU models as
 **Databricks Model Serving endpoints** (as the VLM does today) and call them from a
 detector — keeps the pipeline light, versions/governs the model in Unity Catalog, scales
-independently, and mirrors Asurion's API-gateway architecture. Register models in UC;
+independently, and mirrors insurance_firm's API-gateway architecture. Register models in UC;
 declare heavy dependencies in a serving container or defined environment (not ad-hoc
 `%pip`).
 
@@ -171,7 +171,7 @@ declare heavy dependencies in a serving container or defined environment (not ad
 
 ## 6. Latency & the 30-second inference timeout
 
-Asurion's current constraint is a **30-second timeout at the API gateway** fronting
+insurance_firm's current constraint is a **30-second timeout at the API gateway** fronting
 inference, while some models need up to ~60s — which forces their interim workaround of
 running models in the background and surfacing results at a later checkpoint in the claim
 flow. (That ceiling is a *gateway/platform* limit, not a model limit; if the gateway is
@@ -184,7 +184,7 @@ How this maps on Databricks:
   pipeline runs as a **job** that scores images and writes results to Delta
   (`results.scores`). There is no synchronous request/response gateway in the loop, so the
   30-second ceiling never applies; the claim app reads the scored result at the next
-  checkpoint. This is exactly Asurion's stated interim pattern, but native to the
+  checkpoint. This is exactly insurance_firm's stated interim pattern, but native to the
   lakehouse — and the results table can be mirrored to **Lakebase/Postgres** for
   low-latency app reads. `ai_query` can batch-score many images in a single Spark job.
 - **Real-time Model Serving when a synchronous answer is required.** A Databricks Model
@@ -199,7 +199,7 @@ How this maps on Databricks:
   active model, not the sum.
 
 **Honest status:** this POC runs in **batch/async** mode (no synchronous gateway in the
-loop), which is itself the circumvention and matches Asurion's interim plan. We have
+loop), which is itself the circumvention and matches insurance_firm's interim plan. We have
 **not** yet built a sub-30s synchronous serving endpoint — that's a straightforward next
 step (serve the fast signals; keep the VLM async).
 
@@ -207,10 +207,10 @@ step (serve the fast signals; keep the VLM async).
 
 - **Catalog:** `image_authenticity` — `raw` (images + manifest), `results` (`scores`,
   `detections`, `model_eval`), volumes (`images`, `heatmaps`).
-- **Notebooks:** [`01_generate_samples`](https://e2-demo-field-eng.cloud.databricks.com/#workspace/Users/meghana.padmanabhan@databricks.com/asurion-image-authenticity/notebooks/01_generate_samples) (build labeled data) ·
-  [`02_run_pipeline`](https://e2-demo-field-eng.cloud.databricks.com/#workspace/Users/meghana.padmanabhan@databricks.com/asurion-image-authenticity/notebooks/02_run_pipeline) (select models, run, evaluate).
-- **Job:** [Run Detection Pipeline (02)](https://e2-demo-field-eng.cloud.databricks.com/jobs/491613969987603) — model picks exposed as base parameters (headless-overridable). Pinned serverless environment version 2.
-- **Dashboard:** [Image Authenticity POC](https://e2-demo-field-eng.cloud.databricks.com/sql/dashboardsv3/01f1bd4b648d1aaaa33097df07693a04/published) — Overview + Model A/B pages.
+- **Notebooks:** [`01_generate_samples`](https://<workspace-host>/#workspace/Users/<workspace-user>/insurance_firm-image-authenticity/notebooks/01_generate_samples) (build labeled data) ·
+  [`02_run_pipeline`](https://<workspace-host>/#workspace/Users/<workspace-user>/insurance_firm-image-authenticity/notebooks/02_run_pipeline) (select models, run, evaluate).
+- **Job:** [Run Detection Pipeline (02)](https://<workspace-host>/jobs/491613969987603) — model picks exposed as base parameters (headless-overridable). Pinned serverless environment version 2.
+- **Dashboard:** [Image Authenticity POC](https://<workspace-host>/sql/dashboardsv3/01f1bd4b648d1aaaa33097df07693a04/published) — Overview + Model A/B pages.
 
 ---
 
@@ -220,5 +220,5 @@ step (serve the fast signals; keep the VLM async).
 - CPU heuristics are transparent baselines, not SOTA; the point of the slot design is to
   swap trained models in per functionality.
 - Thresholds are first-pass, calibrated on 42 synthetic samples — recalibrate against
-  Asurion's real suspect images.
+  insurance_firm's real suspect images.
 - Shallow-fake detection is the weak arm and the first place to invest.

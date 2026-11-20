@@ -1,7 +1,7 @@
 # Fraud Defence Workbench (prototype)
 
 Databricks App (Streamlit) implementing the *Fraud Defence Workbench — Architecture, Technology & Experience Design*.
-URL: https://fraud-defence-workbench-1444828305810485.aws.databricksapps.com  (workspace e2-demo-field-eng)
+URL: https://fraud-defence-workbench-<workspace-id>.aws.databricksapps.com  (workspace <workspace>)
 
 ## Screens (simplified)
 Plain-language wording lives in `plain.py`; the engine keeps its technical names.

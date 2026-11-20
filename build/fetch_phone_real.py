@@ -17,7 +17,7 @@ import numpy as np
 
 OUT = sys.argv[1]
 os.makedirs(OUT, exist_ok=True)
-UA = {"User-Agent": "AsurionFraudWorkbenchPOC/1.0 (Databricks field-eng demo)"}
+UA = {"User-Agent": "insurance_firmFraudWorkbenchPOC/1.0 (Databricks field-eng demo)"}
 CATS = ["Taken with iPhone 15", "Taken with iPhone 16", "Taken with iPhone 13", "Taken with iPhone 17",
         "Taken with Samsung Galaxy A52 5G", "Taken with Samsung Galaxy Note 20", "Taken with Samsung Galaxy A23 5G",
         "Taken with Samsung Galaxy Note 10", "Taken with iPhone Air", "Taken with Samsung Galaxy A03s"]

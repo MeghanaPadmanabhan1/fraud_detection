@@ -28,7 +28,7 @@ dbutils.library.restartPython()
 import sys, json
 from collections import defaultdict
 
-PKG_ROOT = "/Workspace/Users/meghana.padmanabhan@databricks.com/asurion-image-authenticity"
+PKG_ROOT = "/Workspace/Users/<workspace-user>/insurance_firm-image-authenticity"
 if PKG_ROOT not in sys.path:
     sys.path.insert(0, PKG_ROOT)
 

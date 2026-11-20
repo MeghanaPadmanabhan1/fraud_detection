@@ -3,7 +3,7 @@
 # MAGIC # 01 · Generate a labeled sample set
 # MAGIC
 # MAGIC Builds a small, **labeled** image set in a UC Volume so we can exercise and
-# MAGIC calibrate the detectors before Asurion's real suspect images arrive.
+# MAGIC calibrate the detectors before insurance_firm's real suspect images arrive.
 # MAGIC
 # MAGIC | label | source | how |
 # MAGIC |---|---|---|
@@ -127,7 +127,7 @@ print(f"wrote {k} shallow-fake images")
 
 # COMMAND ----------
 import sys
-PKG_ROOT = "/Workspace/Users/meghana.padmanabhan@databricks.com/asurion-image-authenticity"
+PKG_ROOT = "/Workspace/Users/<workspace-user>/insurance_firm-image-authenticity"
 if PKG_ROOT not in sys.path:
     sys.path.insert(0, PKG_ROOT)
 from image_authenticity.fmapi import fmapi_chat, first_message_content

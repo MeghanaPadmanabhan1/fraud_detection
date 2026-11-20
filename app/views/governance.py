@@ -90,7 +90,7 @@ with t5:
 - **Synthetic:** claimants, claim dates, receipts and capture EXIF timelines are synthetic. Half of the AI outputs are
   "laundered" (provenance stripped, fake camera EXIF) to test detection without metadata.
 - **Known limits:** small; phone-heavy; no real adjudicated claims; no held-out device/tool split yet. The real gold
-  set must come from Asurion's adjudicated claims (see the companion dataset prompt).
+  set must come from insurance_firm's adjudicated claims (see the companion dataset prompt).
 """)
     st.dataframe(claims[["claim_id", "family", "fraud_class", "source_title", "licence", "artist"]],
                  hide_index=True, use_container_width=True, height=300)

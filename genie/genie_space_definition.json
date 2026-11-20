@@ -1,0 +1,95 @@
+{
+ "version": 2,
+ "config": {
+  "sample_questions": [
+   {
+    "id": "4b2e440ebb6545beba7c97ca8a8f0163",
+    "question": [
+     "How much claim value is in claims we cleared?"
+    ]
+   },
+   {
+    "id": "69cc08fe4cbe4cd0904f0b067ea389d4",
+    "question": [
+     "Which genuine claims were flagged by mistake?"
+    ]
+   },
+   {
+    "id": "b646179119d9499a89e2353dba071a79",
+    "question": [
+     "How many claims did we flag as likely fraud, and how much money is that?"
+    ]
+   },
+   {
+    "id": "c284a3aced6c43f0b7698132fdba5d1e",
+    "question": [
+     "Which fraud types do we catch least often?"
+    ]
+   },
+   {
+    "id": "ebf2e252eb9346c088081ef6456f8b32",
+    "question": [
+     "What are the top 5 claims in the review queue?"
+    ]
+   }
+  ]
+ },
+ "data_sources": {
+  "tables": [
+   {
+    "identifier": "image_authenticity.lakeflow.gold_claim_decisions",
+    "description": [
+     "One row per claim with the engine verdict, top reason and whether it matched the known label. verdict is likely_fraud, needs_review or clear. is_fraud is the ground truth. claim_value is in dollars."
+    ]
+   },
+   {
+    "identifier": "image_authenticity.lakeflow.gold_fraud_summary",
+    "description": [
+     "Per fraud type: claims, total value, flagged claims, firm calls and flag rate."
+    ]
+   },
+   {
+    "identifier": "image_authenticity.lakeflow.gold_review_queue",
+    "description": [
+     "Claims a person should review, strongest first (queue_rank 1 is first)."
+    ]
+   },
+   {
+    "identifier": "image_authenticity.lakeflow.silver_claims",
+    "description": [
+     "Cleaned claim records, one row per claim."
+    ]
+   }
+  ]
+ },
+ "instructions": {
+  "text_instructions": [
+   {
+    "id": "6f75a7505d63425486530554b4bdf008",
+    "content": [
+     "This data is synthetic. Each row is an insurance device-protection claim. 'Flagged' means verdict is likely_fraud or needs_review. A 'firm call' is likely_fraud. Dollar values are claim_value. Genuine claims have is_fraud = false."
+    ]
+   }
+  ],
+  "example_question_sqls": [
+   {
+    "id": "3197e95d037049c3919c36f92b2cf87f",
+    "question": [
+     "Which fraud types are caught least often?"
+    ],
+    "sql": [
+     "SELECT fraud_type, claims, flagged_claims, flag_rate FROM image_authenticity.lakeflow.gold_fraud_summary WHERE family <> 'genuine' ORDER BY flag_rate ASC, claims DESC"
+    ]
+   },
+   {
+    "id": "b3f7b7e2081c497abc7c75ad7bb714c4",
+    "question": [
+     "How many claims were flagged and what is their total value?"
+    ],
+    "sql": [
+     "SELECT count(*) AS flagged_claims, round(sum(claim_value),2) AS flagged_value FROM image_authenticity.lakeflow.gold_claim_decisions WHERE flagged"
+    ]
+   }
+  ]
+ }
+}

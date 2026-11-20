@@ -13,7 +13,7 @@ import numpy as np
 
 OUT = sys.argv[1]
 os.makedirs(OUT, exist_ok=True)
-UA = {"User-Agent": "AsurionFraudWorkbenchPOC/1.0 (Databricks field-eng demo)"}
+UA = {"User-Agent": "insurance_firmFraudWorkbenchPOC/1.0 (Databricks field-eng demo)"}
 
 QUERIES = {
     "phone": ["cracked smartphone screen", "broken phone screen", "shattered phone screen",

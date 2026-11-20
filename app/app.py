@@ -1,6 +1,6 @@
 """Fraud Defence Workbench — Databricks App (Streamlit).
 
-Asurion device-claim fraud: deepfake & shallowfake detection with every stage
+insurance_firm device-claim fraud: deepfake & shallowfake detection with every stage
 switchable, every verdict explained, everything observable, every human decision
 fed back to the gold set.
 """
@@ -15,17 +15,21 @@ from image_authenticity.workbench.catalog import PRESET_NOTES  # noqa: E402
 
 PAGES = {
     "Claims": st.Page("views/claims.py", title="Claims", icon="🔎", default=True),
+    "Business view": st.Page("views/business.py", title="Business view", icon="📈"),
+    "Ask the data": st.Page("views/ask.py", title="Ask the data", icon="💬"),
     "Compare methods": st.Page("views/methods.py", title="Compare methods", icon="🎛️"),
     "Admin": st.Page("views/governance.py", title="Admin", icon="🏛️"),
 }
 
 with st.sidebar:
     st.markdown("### 🛡️ Fraud Defence Workbench")
-    st.caption("Asurion × Databricks · prototype")
+    st.caption("insurance_firm × Databricks · prototype")
     role = st.selectbox("I am a…", ["Analyst", "Data scientist", "Manager / auditor"], key="role",
                         help="Changes which screen opens first and nothing else. Nothing is hidden.")
 
-order = ["Claims", "Compare methods", "Admin"] if role == "Analyst" else ["Compare methods", "Claims", "Admin"]
+order = (["Claims", "Ask the data", "Business view", "Compare methods", "Admin"] if role == "Analyst"
+         else ["Business view", "Ask the data", "Compare methods", "Claims", "Admin"] if role == "Manager / auditor"
+         else ["Compare methods", "Claims", "Ask the data", "Business view", "Admin"])
 nav = st.navigation([PAGES[k] for k in order])
 
 with st.sidebar:

@@ -59,7 +59,7 @@ if __name__ == "__main__":
         sys.exit(0)
     mlflow.set_registry_uri("databricks-uc")
     mlflow.set_tracking_uri("databricks")
-    mlflow.set_experiment("/Users/meghana.padmanabhan@databricks.com/sscd-copy-detection")
+    mlflow.set_experiment("/Users/<workspace-user>/sscd-copy-detection")
     with mlflow.start_run(run_name="register-sscd-disc-mixup"):
         info = mlflow.pyfunc.log_model(
             name="sscd", python_model=SSCD(), artifacts={"weights": WEIGHTS}, signature=sig, input_example=ex,

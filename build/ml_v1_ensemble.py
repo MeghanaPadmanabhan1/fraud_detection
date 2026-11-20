@@ -1,6 +1,6 @@
 import csv, glob, json, os, sys
 import numpy as np
-ROOT = os.path.expanduser("~/asurion-image-authenticity"); W = ROOT + "/wb_data"
+ROOT = os.path.expanduser("~/insurance_firm-image-authenticity"); W = ROOT + "/wb_data"
 rng = np.random.default_rng(0)
 
 def auc(s, y):

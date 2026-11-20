@@ -6,10 +6,10 @@ Keeps the base genuinely real (no AI provenance) so 'authentic' stays authentic.
 import io, json, os, urllib.parse, urllib.request, datetime
 import cv2, numpy as np
 
-OUT = os.path.expanduser("~/asurion-image-authenticity/_phones")
+OUT = os.path.expanduser("~/insurance_firm-image-authenticity/_phones")
 os.makedirs(f"{OUT}/authentic", exist_ok=True)
 os.makedirs(f"{OUT}/shallow_fake", exist_ok=True)
-UA = {"User-Agent": "AsurionPOC/1.0 (field-eng demo; contact meghana)"}
+UA = {"User-Agent": "insurance_firmPOC/1.0 (field-eng demo; contact meghana)"}
 
 def commons_urls(query, n=8):
     q = urllib.parse.quote(query)
