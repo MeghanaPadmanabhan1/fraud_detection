@@ -24,12 +24,13 @@ FAMILY_PLAIN = {"shallowfake": "Reused or misrepresented real photo", "deepfake"
 # Overlay names the engine produces -> what the investigator sees.
 OVERLAY_PLAIN = {
     "Photo only": ("Photo", ""),
-    "ELA heatmap": ("Areas that look edited", "Warm areas were saved differently from the rest of the photo, "
-                                               "which can mean they were edited."),
-    "Noise map": ("Areas with different grain", "Camera grain should look the same across a photo. A patch that "
-                                                "differs may have been pasted in."),
-    "JPEG ghost map": ("Areas with a different save history (JPEG ghost)", "Warm areas went through a different number of "
-                                                              "saves than the rest, which suggests a local edit."),
+    "ELA heatmap": ("Where the photo differs most", "A guide, not proof. This map always lights up the parts of a photo that "
+                                                 "differ most from the rest (edges and fine detail), even on genuine photos. "
+                                                 "Only treat it as a sign when the check result above also flags editing."),
+    "Noise map": ("Where the grain differs most", "A guide, not proof. Camera grain is usually even across a photo. "
+                                                "A patch that stands out may have been pasted in."),
+    "JPEG ghost map": ("Where save history differs most (JPEG ghost)", "A guide, not proof. Warm areas went through a different number of "
+                                                              "saves than the rest. Forwarded or re-saved photos show this too."),
     "Copy-move pairs": ("Cloned parts", "Lines join parts of the photo that are near-identical, which suggests "
                                         "one part was copied onto another."),
     "Ground-truth mask (gold set)": ("Known edited area (test data)", "The area the test set says was altered. "

@@ -317,8 +317,9 @@ def banner(r, claim=None):
     sub = (f"{more} other sign{'s' if more != 1 else ''} below · " if more and r.verdict != "clear" else "") \
         + plain.next_step(r)
     fam = plain.families_plain(r) if r.verdict != "clear" else ""
-    st.markdown(f'<div class="wb-banner" style="background:{color}"><div class="t">{esc(label)} · confidence '
-                f'{plain.confidence_word(r.confidence).lower()}{" · " + esc(fam) if fam else ""}</div>'
+    tag = "nothing flagged" if r.verdict == "clear" else f"confidence {plain.confidence_word(r.confidence).lower()}"
+    st.markdown(f'<div class="wb-banner" style="background:{color}"><div class="t">{esc(label)} · {tag}'
+                f'{" · " + esc(fam) if fam else ""}</div>'
                 f'<div class="h">{esc(plain.headline(r))}</div><div class="s">{esc(sub)}</div></div>',
                 unsafe_allow_html=True)
 
@@ -327,7 +328,7 @@ def plain_summary(r):
     """Compact verdict + reasons for side-by-side views."""
     label, color = plain.verdict_title(r)
     st.markdown(f'<div class="wb-banner" style="background:{color};padding:10px 14px"><div class="t">{esc(label)} · '
-                f'confidence {plain.confidence_word(r.confidence).lower()}</div>'
+                f'{"nothing flagged" if r.verdict == "clear" else "confidence " + plain.confidence_word(r.confidence).lower()}</div>'
                 f'<div class="s" style="font-size:0.9rem">{esc(plain.headline(r))}</div></div>', unsafe_allow_html=True)
 
 
