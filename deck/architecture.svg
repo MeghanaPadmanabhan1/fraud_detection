@@ -1,0 +1,113 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1300 780" width="1300" height="780" font-family="Helvetica, Arial, sans-serif" role="img" aria-labelledby="t d">
+<title id="t">Fraud Defence Workbench architecture</title><desc id="d">Raw claim files land in a Unity Catalog volume. A Lakeflow pipeline builds bronze, silver and gold tables. A detection engine with SSCD and vision models adds verdicts that the gold tables join. Gold data is served through Lakebase and Genie to a Databricks app used by investigators and managers. Unity Catalog governs everything.</desc>
+<defs><marker id="as" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="#33507A"/></marker><marker id="ad" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="#7A4A1A"/></marker></defs>
+<rect width="1300" height="780" fill="#FFFFFF"/>
+<text x="24" y="34" text-anchor="start" font-size="22" font-weight="700" fill="#14243C" >Fraud Defence Workbench: from raw claims to a business app</text>
+<text x="24" y="55" text-anchor="start" font-size="12.5" font-weight="400" fill="#5B6472" >Device-protection claims fraud, built end to end on Databricks. Synthetic claims over public photos.</text>
+<rect x="20" y="80" width="230" height="360" rx="12" fill="#F7F5EF" stroke="#7A6A33" stroke-width="1.2"/>
+<text x="34" y="102" text-anchor="start" font-size="12.5" font-weight="700" fill="#7A6A33" letter-spacing="0.6">1  INPUTS</text>
+<rect x="290" y="80" width="330" height="360" rx="12" fill="#EEF6F1" stroke="#2E6B4A" stroke-width="1.2"/>
+<text x="304" y="102" text-anchor="start" font-size="12.5" font-weight="700" fill="#2E6B4A" letter-spacing="0.6">2  LAKEFLOW PIPELINE</text>
+<rect x="660" y="80" width="250" height="360" rx="12" fill="#EEF2F8" stroke="#33507A" stroke-width="1.2"/>
+<text x="674" y="102" text-anchor="start" font-size="12.5" font-weight="700" fill="#33507A" letter-spacing="0.6">4  SERVING</text>
+<rect x="950" y="80" width="330" height="360" rx="12" fill="#FBF1EC" stroke="#8A4A2E" stroke-width="1.2"/>
+<text x="964" y="102" text-anchor="start" font-size="12.5" font-weight="700" fill="#8A4A2E" letter-spacing="0.6">5  DATABRICKS APP</text>
+<rect x="35" y="110" width="200" height="50" rx="8" fill="#FFFFFF" stroke="#7A6A33" stroke-width="1.5"/>
+<text x="135.0" y="132" text-anchor="middle" font-size="13.5" font-weight="700" fill="#14243C" >Claim feed</text>
+<text x="135.0" y="150.0" text-anchor="middle" font-size="11.5" font-weight="400" fill="#3B4658" >JSON batch files</text>
+<rect x="35" y="172" width="200" height="50" rx="8" fill="#FFFFFF" stroke="#7A6A33" stroke-width="1.5"/>
+<text x="135.0" y="194" text-anchor="middle" font-size="13.5" font-weight="700" fill="#14243C" >Claim photos</text>
+<text x="135.0" y="212.0" text-anchor="middle" font-size="11.5" font-weight="400" fill="#3B4658" >JPEG / PNG damage evidence</text>
+<rect x="35" y="234" width="200" height="50" rx="8" fill="#FFFFFF" stroke="#7A6A33" stroke-width="1.5"/>
+<text x="135.0" y="256" text-anchor="middle" font-size="13.5" font-weight="700" fill="#14243C" >Receipts</text>
+<text x="135.0" y="274.0" text-anchor="middle" font-size="11.5" font-weight="400" fill="#3B4658" >image files</text>
+<rect x="35" y="320" width="200" height="100" rx="8" fill="#FFFFFF" stroke="#7A6A33" stroke-width="1.5"/>
+<text x="135.0" y="342" text-anchor="middle" font-size="13" font-weight="700" fill="#14243C" >UC volume: claims_media</text>
+<text x="135.0" y="364.0" text-anchor="middle" font-size="11.5" font-weight="400" fill="#3B4658" >landing/ · images/</text>
+<text x="135.0" y="379.5" text-anchor="middle" font-size="11.5" font-weight="400" fill="#3B4658" >receipts/ · masks/</text>
+<path d="M135 284 L135 320" stroke="#7A6A33" stroke-width="1.5" marker-end="url(#as)" fill="none"/>
+<rect x="305" y="110" width="145" height="48" rx="8" fill="#FFFFFF" stroke="#2E6B4A" stroke-width="1.5"/>
+<text x="377.5" y="132" text-anchor="middle" font-size="12.5" font-weight="700" fill="#14243C" >bronze_claims</text>
+<text x="377.5" y="148.0" text-anchor="middle" font-size="11.5" font-weight="400" fill="#3B4658" >Auto Loader</text>
+<rect x="460" y="110" width="145" height="48" rx="8" fill="#FFFFFF" stroke="#2E6B4A" stroke-width="1.5"/>
+<text x="532.5" y="132" text-anchor="middle" font-size="12" font-weight="700" fill="#14243C" >bronze_claim_images</text>
+<text x="532.5" y="148.0" text-anchor="middle" font-size="11.5" font-weight="400" fill="#3B4658" >file metadata</text>
+<rect x="305" y="184" width="300" height="48" rx="8" fill="#FFFFFF" stroke="#2E6B4A" stroke-width="1.5"/>
+<text x="455.0" y="206" text-anchor="middle" font-size="13.5" font-weight="700" fill="#14243C" >silver_claims</text>
+<text x="455.0" y="222.0" text-anchor="middle" font-size="11.5" font-weight="400" fill="#3B4658" >typed, de-duplicated, quality rules</text>
+<rect x="305" y="258" width="300" height="48" rx="8" fill="#FFFFFF" stroke="#2E6B4A" stroke-width="1.5"/>
+<text x="455.0" y="280" text-anchor="middle" font-size="13.5" font-weight="700" fill="#14243C" >gold_claim_decisions</text>
+<text x="455.0" y="296.0" text-anchor="middle" font-size="11.5" font-weight="400" fill="#3B4658" >claim + verdict + top reason</text>
+<rect x="305" y="332" width="145" height="48" rx="8" fill="#FFFFFF" stroke="#2E6B4A" stroke-width="1.5"/>
+<text x="377.5" y="354" text-anchor="middle" font-size="12" font-weight="700" fill="#14243C" >gold_fraud_summary</text>
+<text x="377.5" y="370.0" text-anchor="middle" font-size="11.5" font-weight="400" fill="#3B4658" >by fraud type</text>
+<rect x="460" y="332" width="145" height="48" rx="8" fill="#FFFFFF" stroke="#2E6B4A" stroke-width="1.5"/>
+<text x="532.5" y="354" text-anchor="middle" font-size="12" font-weight="700" fill="#14243C" >gold_review_queue</text>
+<text x="532.5" y="370.0" text-anchor="middle" font-size="11.5" font-weight="400" fill="#3B4658" >strongest first</text>
+<text x="455" y="404" text-anchor="middle" font-size="11.5" font-weight="400" fill="#2E6B4A" >Serverless declarative pipeline, incremental</text>
+<text x="455" y="421" text-anchor="middle" font-size="11.5" font-weight="400" fill="#2E6B4A" >Quality rules dropped or counted, never hidden</text>
+<path d="M377 158 L377 184" fill="none" stroke="#33507A" stroke-width="2"  marker-end="url(#as)"/>
+<path d="M532 158 L532 184" fill="none" stroke="#33507A" stroke-width="2"  marker-end="url(#as)"/>
+<path d="M455 232 L455 258" fill="none" stroke="#33507A" stroke-width="2"  marker-end="url(#as)"/>
+<path d="M377 306 L377 332" fill="none" stroke="#33507A" stroke-width="2"  marker-end="url(#as)"/>
+<path d="M532 306 L532 332" fill="none" stroke="#33507A" stroke-width="2"  marker-end="url(#as)"/>
+<rect x="675" y="110" width="220" height="118" rx="8" fill="#FFFFFF" stroke="#33507A" stroke-width="1.5"/>
+<text x="785.0" y="132" text-anchor="middle" font-size="13.5" font-weight="700" fill="#14243C" >Lakebase (Postgres)</text>
+<text x="785.0" y="154.0" text-anchor="middle" font-size="11.5" font-weight="400" fill="#3B4658" >synced review_queue</text>
+<text x="785.0" y="169.5" text-anchor="middle" font-size="11.5" font-weight="400" fill="#3B4658" >decisions and audit log</text>
+<text x="785.0" y="185.0" text-anchor="middle" font-size="11.5" font-weight="400" fill="#3B4658" >app round trip under 0.5 s</text>
+<rect x="675" y="244" width="220" height="92" rx="8" fill="#FFFFFF" stroke="#33507A" stroke-width="1.5"/>
+<text x="785.0" y="266" text-anchor="middle" font-size="13.5" font-weight="700" fill="#14243C" >Genie space</text>
+<text x="785.0" y="288.0" text-anchor="middle" font-size="11.5" font-weight="400" fill="#3B4658" >plain-English questions</text>
+<text x="785.0" y="303.5" text-anchor="middle" font-size="11.5" font-weight="400" fill="#3B4658" >over the gold tables</text>
+<text x="785.0" y="319.0" text-anchor="middle" font-size="11.5" font-weight="400" fill="#3B4658" >shows the SQL it wrote</text>
+<rect x="675" y="352" width="220" height="70" rx="8" fill="#FFFFFF" stroke="#33507A" stroke-width="1.5"/>
+<text x="785.0" y="374" text-anchor="middle" font-size="13.5" font-weight="700" fill="#14243C" >SQL warehouse</text>
+<text x="785.0" y="396.0" text-anchor="middle" font-size="11.5" font-weight="400" fill="#3B4658" >serverless, reads Delta</text>
+<rect x="965" y="108" width="145" height="32" rx="8" fill="#FFFFFF" stroke="#8A4A2E" stroke-width="1.5"/>
+<text x="1037.5" y="130" text-anchor="middle" font-size="12.5" font-weight="700" fill="#14243C" >Investigator</text>
+<rect x="1120" y="108" width="145" height="32" rx="8" fill="#FFFFFF" stroke="#8A4A2E" stroke-width="1.5"/>
+<text x="1192.5" y="130" text-anchor="middle" font-size="12.5" font-weight="700" fill="#14243C" >Manager</text>
+<path d="M1037 140 L1037 158 M1192 140 L1192 158" stroke="#8A4A2E" stroke-width="1.5" fill="none"/>
+<rect x="965" y="158" width="300" height="150" rx="8" fill="#FFFFFF" stroke="#8A4A2E" stroke-width="1.5"/>
+<text x="1115.0" y="180" text-anchor="middle" font-size="13.5" font-weight="700" fill="#14243C" >Streamlit app</text>
+<text x="1115.0" y="204" text-anchor="middle" font-size="11.5" font-weight="400" fill="#3B4658" >Claims: inspect a claim, upload a photo</text>
+<text x="1115.0" y="223" text-anchor="middle" font-size="11.5" font-weight="400" fill="#3B4658" >Business view: KPIs and review queue</text>
+<text x="1115.0" y="242" text-anchor="middle" font-size="11.5" font-weight="400" fill="#3B4658" >Ask the data: questions via Genie</text>
+<text x="1115.0" y="261" text-anchor="middle" font-size="11.5" font-weight="400" fill="#3B4658" >Compare methods  ·  Admin</text>
+<rect x="965" y="328" width="300" height="92" rx="8" fill="#FFFFFF" stroke="#8A4A2E" stroke-width="1.5"/>
+<text x="1115.0" y="350" text-anchor="middle" font-size="13.5" font-weight="700" fill="#14243C" >Human review</text>
+<text x="1115.0" y="374.0" text-anchor="middle" font-size="11.5" font-weight="400" fill="#3B4658" >reviewer decisions and audit log</text>
+<text x="1115.0" y="389.5" text-anchor="middle" font-size="11.5" font-weight="400" fill="#3B4658" >saved to Delta and Lakebase</text>
+<rect x="20" y="480" width="600" height="140" rx="12" fill="#F3EEF8" stroke="#5B3A8A" stroke-width="1.2"/>
+<text x="34" y="502" text-anchor="start" font-size="12.5" font-weight="700" fill="#5B3A8A" letter-spacing="0.6">3  INTELLIGENCE (detection engine)</text>
+<rect x="35" y="508" width="185" height="100" rx="8" fill="#FFFFFF" stroke="#5B3A8A" stroke-width="1.5"/>
+<text x="127.5" y="530" text-anchor="middle" font-size="13.5" font-weight="700" fill="#14243C" >Detection engine</text>
+<text x="127.5" y="552.0" text-anchor="middle" font-size="11.5" font-weight="400" fill="#3B4658" >5 checks, rules decide</text>
+<text x="127.5" y="567.5" text-anchor="middle" font-size="11.5" font-weight="400" fill="#3B4658" >explainer words the result</text>
+<text x="127.5" y="583.0" text-anchor="middle" font-size="11.5" font-weight="400" fill="#3B4658" >red / amber / green</text>
+<rect x="232" y="508" width="185" height="100" rx="8" fill="#FFFFFF" stroke="#5B3A8A" stroke-width="1.5"/>
+<text x="324.5" y="530" text-anchor="middle" font-size="13.5" font-weight="700" fill="#14243C" >SSCD endpoint</text>
+<text x="324.5" y="552.0" text-anchor="middle" font-size="11.5" font-weight="400" fill="#3B4658" >Model Serving, always on</text>
+<text x="324.5" y="567.5" text-anchor="middle" font-size="11.5" font-weight="400" fill="#3B4658" >finds cropped or</text>
+<text x="324.5" y="583.0" text-anchor="middle" font-size="11.5" font-weight="400" fill="#3B4658" >screenshotted reuse</text>
+<rect x="429" y="508" width="176" height="100" rx="8" fill="#FFFFFF" stroke="#5B3A8A" stroke-width="1.5"/>
+<text x="517.0" y="530" text-anchor="middle" font-size="13.5" font-weight="700" fill="#14243C" >Vision models</text>
+<text x="517.0" y="552.0" text-anchor="middle" font-size="11.5" font-weight="400" fill="#3B4658" >Llama 4, Claude, Gemini,</text>
+<text x="517.0" y="567.5" text-anchor="middle" font-size="11.5" font-weight="400" fill="#3B4658" >GPT-5: scene and receipt</text>
+<text x="517.0" y="583.0" text-anchor="middle" font-size="11.5" font-weight="400" fill="#3B4658" >(a hint, not a verdict)</text>
+<path d="M250 250 L290 250" fill="none" stroke="#33507A" stroke-width="2"  marker-end="url(#as)"/>
+<path d="M620 250 L660 250" fill="none" stroke="#33507A" stroke-width="2"  marker-end="url(#as)"/>
+<path d="M910 250 L950 250" fill="none" stroke="#33507A" stroke-width="2"  marker-end="url(#as)"/>
+<path d="M135 440 L135 480" fill="none" stroke="#33507A" stroke-width="2"  marker-end="url(#as)"/>
+<text x="162" y="466" text-anchor="start" font-size="11" font-weight="400" fill="#3B4658" font-style="italic">photos</text>
+<path d="M455 480 L455 440" fill="none" stroke="#33507A" stroke-width="2"  marker-end="url(#as)"/>
+<text x="470" y="466" text-anchor="start" font-size="11" font-weight="400" fill="#3B4658" font-style="italic">verdicts joined in gold</text>
+<path d="M1115 420 L1115 550 L626 550" fill="none" stroke="#7A4A1A" stroke-width="2" stroke-dasharray="7 5" marker-end="url(#ad)"/>
+<text x="870" y="538" text-anchor="middle" font-size="11" font-weight="400" fill="#3B4658" font-style="italic">live calls from the app: SSCD fingerprint, vision models</text>
+<rect x="20" y="650" width="1260" height="110" rx="12" fill="#F4F6F9" stroke="#33507A" stroke-width="1.5"/>
+<text x="36" y="674" text-anchor="start" font-size="12.5" font-weight="700" fill="#33507A" letter-spacing="0.6">UNITY CATALOG GOVERNS EVERYTHING ABOVE</text>
+<text x="36" y="698" text-anchor="start" font-size="13" font-weight="400" fill="#14243C" >Catalog <tspan font-weight="700">image_authenticity</tspan>: schemas workbench, results, lakeflow · volume claims_media · registered SSCD model · Lakebase catalog</text>
+<text x="36" y="720" text-anchor="start" font-size="13" font-weight="400" fill="#14243C" >Personal-data tags on claimant_id · table comments (read by Genie) · least-privilege grants for the app identity · audit log</text>
+<text x="36" y="745" text-anchor="start" font-size="11.5" font-weight="400" fill="#5B6472" >Solid arrow: data flow.    Dashed arrow: live call at request time.</text>
+</svg>

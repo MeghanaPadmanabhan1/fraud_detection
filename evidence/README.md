@@ -11,6 +11,7 @@ Every file here is real output captured from the e2 workspace, as text. Nothing 
 | `05_app_page_tests.txt` | The new app pages rendered headlessly against real data (business metrics, a Genie answer, review page) | Streamlit AppTest, script in `app_page_tests.py` |
 | `06_unity_catalog_governance.md` | Comments, tags (including personal-data tags on `claimant_id`) and grants as applied and read back | `uc/governance.sql` |
 | `07_pre_merge_tests.txt` | 29 checks on a fresh clone of this branch: code and data hygiene, clean merge, parity with the live app, data and deck numbers, unit tests of the new code, live Genie, endpoint, pipeline and page tests | `pre_merge_tests.py` |
+| `08_app_lakebase_writes.json` | What the live app wrote to Lakebase: the saved decision (CLM-1058) and its audit entry, read back from Postgres. App round trip measured at 457 ms | `lakebase/read_app_writes.py` |
 | `../ML_EXPERIMENT.md`, `../wb_data/ml_exp/*.md`, `../wb_data/ml_v1/results.md` | The detection experiments: SSCD vs pHash vs ORB, CLIP and SPAI detectors, combiner tests | scripts in `build/` |
 
 Data is synthetic claim records over public Wikimedia Commons photos. No customer data is used.

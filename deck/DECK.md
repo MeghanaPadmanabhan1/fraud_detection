@@ -50,6 +50,21 @@ A person looking at a photo cannot reliably tell these apart, and they cannot co
 
 ## 4. The end-to-end data journey (all on Databricks)
 
+```
+ Inputs            Lakeflow pipeline           Serving                 App
+ claim feed   -->  bronze (Auto Loader)  -->   Lakebase (Postgres) -->  inspect a claim
+ photos            silver (quality rules)      Genie space              business view
+ receipts          gold (decisions, queue)     SQL warehouse            ask the data
+   |                    ^                                                review and audit
+   v                    | verdicts joined in gold                           :
+ Detection engine: 5 checks, rules decide, SSCD copy detection,        :  live calls
+ vision models for scene and receipt ------------------------------------'
+ Unity Catalog governs all of it: tables, volume, model, tags, grants
+```
+
+Picture: `deck/architecture.svg`. Text version and component table: `deck/ARCHITECTURE.md`.
+
+
 | Stage | What runs | Where to look |
 |---|---|---|
 | **Lakeflow** ingest | Auto Loader reads raw claim files and photos into bronze, then silver (with quality rules), then gold | `pipeline/claims_pipeline.sql`, `evidence/01_*`, `evidence/02_*` |
@@ -73,6 +88,7 @@ A person looking at a photo cannot reliably tell these apart, and they cannot co
 | **SSCD (learned)** | **80 of 80** | **0 of 40** |
 
 - **AI-image detectors were tested and not shipped.** Two published detectors (a CLIP-based one and SPAI) scored 0.55 to 0.79 AUC on 52 AI images against 32 real photos, and one flagged up to 31% of real photos. We use a vision model's read as a hint only. Image shape alone separated one generator at 0.97, which is why we distrust any single score.
+- **The build itself was tested before release:** 29 automated checks on the shipped code and the live workspace (clean merge, data and deck numbers agree, the new code fails soft, Genie and pages work). Result: `evidence/07_pre_merge_tests.txt`. One real problem was found and fixed: the SSCD endpoint had silently reverted to scale-to-zero.
 - **A learned combiner did not beat the rules.** On a fraud type held out of training its recall fell from 97% to 87%, so the explainable rules stay.
 
 ---
@@ -82,6 +98,8 @@ A person looking at a photo cannot reliably tell these apart, and they cannot co
 - **Small and synthetic.** 66 claims built from public photos and made-up records. Treat these as direction, not guarantees.
 - **False alarms are the main cost.** The weak editing checks fire on forwarded photos. Work to do: tune them on real investigator labels, and route only strong evidence to investigators.
 - **AI-made photos are the weak area** (7 of 8 AI-generated claims flagged), and new generators keep arriving.
+- **The heat map is a guide, not proof.** It always highlights the busiest parts of a photo, even a genuine one, so it never decides a claim.
+- **Lakebase from the app is sub-second, not instant.** A reviewer's decision lands in Delta and in Lakebase (seen live: a decision stored in Postgres, 457 ms round trip, because each write opens a fresh secure connection).
 - **Not checked yet:** photos copied from the internet. Today reuse is checked against earlier claims only.
 
 ---
@@ -106,3 +124,17 @@ Reading it: the firm-call route pays for itself on its own. The wider route catc
 1. Approve a pilot on a slice of real claims, with investigators labelling outcomes in the app.
 2. Name the fraud rate and review-cost figures so the economics can be replaced with real numbers.
 3. Decide the risk appetite: firm calls only, or firm calls plus the human-look queue.
+
+---
+
+## Appendix: where the proof is
+
+| Claim | Evidence (text, in the repo) |
+|---|---|
+| Pipeline ran and produced the gold tables | `evidence/01_lakeflow_pipeline_output.md`, `evidence/02_lakeflow_event_log.txt` |
+| Genie answers business questions | `evidence/03_genie_answers.md` |
+| Lakebase works and the queue is synced | `evidence/04_lakebase_smoke_test.json` |
+| App pages work on real data | `evidence/05_app_page_tests.txt` |
+| Governance applied | `evidence/06_unity_catalog_governance.md` |
+| Build tested before release | `evidence/07_pre_merge_tests.txt` |
+| Detection experiments | `ML_EXPERIMENT.md` |

@@ -1,0 +1,35 @@
+{
+ "what": "Read back from Lakebase (Postgres) after a reviewer saved a decision in the live app",
+ "how": "serverless job run of lakebase/read_app_writes.py, as the data owner",
+ "app_observed": {
+  "decisions_stored": 1,
+  "audit_entries": 2,
+  "app_round_trip_ms": 457
+ },
+ "postgres_contents": {
+  "review_decisions_rows": 1,
+  "audit_log_rows": 2,
+  "latest_decisions": [
+   [
+    "2026-11-20 20:40:21.182785+00",
+    "CLM-1058",
+    "confirm_fraud",
+    "reused_photo",
+    "likely_fraud",
+    "Production"
+   ]
+  ],
+  "latest_audit": [
+   [
+    "2026-11-20 20:40:23.711677+00",
+    "label",
+    "CLM-1058"
+   ],
+   [
+    "2026-11-20 19:31:17.550711+00",
+    "lakebase_setup",
+    "ops"
+   ]
+  ]
+ }
+}

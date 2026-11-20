@@ -1,0 +1,295 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Fraud Defence Workbench</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+:root{--bg:#F3F4F6;--panel:#FFFFFF;--ink:#14181F;--muted:#5B6472;--line:#D8DCE3;--accent:#C8361D;--accent-soft:#F8E3DE;--ok:#1F7A4D;--ok-soft:#DDF0E5;--bar:#2B3A55;--dim:#B4BCCB;
+--display:"Bricolage Grotesque","Helvetica Neue",Arial,sans-serif;--body:"IBM Plex Sans","Helvetica Neue",Arial,sans-serif}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#10141B;--panel:#181E28;--ink:#EEF0F4;--muted:#9AA4B5;--line:#2C3544;--accent:#FF7A5C;--accent-soft:#3A1F1A;--ok:#5CD08F;--ok-soft:#173226;--bar:#8FA6D6;--dim:#3A4558;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#10141B;--panel:#181E28;--ink:#EEF0F4;--muted:#9AA4B5;--line:#2C3544;--accent:#FF7A5C;--accent-soft:#3A1F1A;--ok:#5CD08F;--ok-soft:#173226;--bar:#8FA6D6;--dim:#3A4558;color-scheme:dark}
+*{box-sizing:border-box}
+html{scroll-snap-type:y proximity;scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--body);font-size:18px;line-height:1.5;padding-inline:max(16px,env(safe-area-inset-left,0px))}
+.slide{max-width:1000px;margin:0 auto;min-height:92vh;padding-block:48px;display:flex;flex-direction:column;justify-content:center;gap:24px;scroll-snap-align:start;border-bottom:1px solid var(--line)}
+.slide:last-of-type{border-bottom:0}
+.tag{font:600 12px/1 var(--body);letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin:0}
+h1,h2{font-family:var(--display);margin:0;line-height:1.05;letter-spacing:-.015em;text-wrap:balance}
+h1{font-size:clamp(38px,7vw,72px)}
+h2{font-size:clamp(28px,4.6vw,46px)}
+h3{font-family:var(--display);font-size:21px;margin:0 0 6px}
+p{margin:0;max-width:62ch;text-wrap:pretty}
+.lede{font-size:clamp(19px,2.3vw,23px);color:var(--muted)}
+.grid{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(210px,1fr))}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:20px;min-width:0}
+.card p{color:var(--muted);font-size:16px}
+.big{font:500 clamp(34px,5vw,48px)/1 var(--display);font-variant-numeric:tabular-nums}
+.red{color:var(--accent)}.green{color:var(--ok)}
+.note{font-size:15px;color:var(--muted);border-left:3px solid var(--line);padding-left:14px;max-width:68ch}
+.row{display:grid;grid-template-columns:minmax(120px,210px) 1fr 76px;gap:12px;align-items:center;font-size:16px}
+.row .t{height:24px}.row .f{height:100%;background:var(--bar);border-radius:0 4px 4px 0}.row .f.hi{background:var(--accent)}.row .f.dim{background:var(--dim)}
+.row .v{font:500 15px var(--body);text-align:right;font-variant-numeric:tabular-nums}
+.bars{display:grid;gap:12px}
+.scroll{overflow-x:auto}
+table{border-collapse:collapse;width:100%;font-size:16px}
+th,td{text-align:left;padding:11px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font:600 12px var(--body);letter-spacing:.07em;text-transform:uppercase;color:var(--muted)}
+td.n,th.n{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+.steps{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));counter-reset:s}
+.steps div{background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:16px;counter-increment:s}
+.steps div::before{content:counter(s);display:block;font:700 13px var(--body);color:var(--accent);margin-bottom:6px}
+.steps b{display:block;font-family:var(--display);font-size:18px;margin-bottom:2px}
+.steps span{font-size:14px;color:var(--muted)}
+.pill{display:inline-block;font:600 13px var(--body);padding:3px 9px;border-radius:4px;background:var(--accent-soft);color:var(--accent)}
+.pill.ok{background:var(--ok-soft);color:var(--ok)}
+.diagram{background:#FFFFFF;border:1px solid var(--line);border-radius:8px;padding:10px}
+.diagram svg{width:100%;height:auto;display:block}
+ul{margin:0;padding-left:20px;display:grid;gap:8px;max-width:64ch}
+.hint{position:fixed;right:max(16px,env(safe-area-inset-right,0px));bottom:max(12px,env(safe-area-inset-bottom,0px));font:12px var(--body);color:var(--muted);background:var(--panel);border:1px solid var(--line);padding:5px 9px;border-radius:4px}
+@media (max-width:560px){.row{grid-template-columns:1fr 70px}.row .t{grid-column:1/-1;order:3}.slide{min-height:auto}}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style></head><body>
+
+<section class="slide">
+  <p class="tag">Device-protection claims</p>
+  <h1>Stop paying fake claims earlier, without accusing honest customers</h1>
+  <p class="lede">A claim arrives with a photo and a receipt. This tool checks both, explains what it found, and puts a ranked queue in front of investigators.</p>
+  <p class="note">Built on Databricks. Every figure in this deck comes from a synthetic test set of 66 claims, so read it as direction, not a forecast.</p>
+</section>
+
+<section class="slide">
+  <p class="tag">The result</p>
+  <h2>51 of 52 fraudulent claims flagged. No honest customer got a fraud call.</h2>
+  <div class="grid">
+    <div class="card"><div class="big green">51 / 52</div><p>fraud claims flagged for a person</p></div>
+    <div class="card"><div class="big green">43</div><p>firm "likely fraud" calls, and none were genuine claims</p></div>
+    <div class="card"><div class="big">$33.9k</div><p>of $34.6k fraudulent claim value flagged</p></div>
+    <div class="card"><div class="big red">6 / 14</div><p>genuine claims sent for a look (43%), as "needs a look", never as fraud</p></div>
+  </div>
+  <p class="note">The last tile is the cost, and the first thing to tune. It is a dial: firm calls only, or firm calls plus a human-look queue.</p>
+</section>
+
+<section class="slide">
+  <p class="tag">Who gets what</p>
+  <h2>Value for the sponsor, and for the people doing the work</h2>
+  <div class="grid">
+    <div class="card"><h3>Executive sponsor</h3><ul style="padding-left:18px;gap:6px"><li>Fewer fraudulent payouts: 98% of fraud value flagged in our test</li><li>No honest customer accused: 0 of 14 got a fraud call</li><li>An explainable control: every call lists the checks behind it</li><li>A dial between catching more and bothering more customers</li></ul></div>
+    <div class="card"><h3>Claims investigation lead</h3><ul style="padding-left:18px;gap:6px"><li>A ranked queue: strongest cases first, value at stake shown</li><li>Plain reasons and the evidence, not a score</li><li>Their decisions are saved and feed the next round of tuning</li><li>Ask questions in plain English, no analyst needed</li></ul></div>
+  </div>
+  <p class="note">KPIs this moves: fraud leakage, review cost per claim, false-accusation rate, time an investigator spends per case.</p>
+</section>
+
+<section class="slide">
+  <p class="tag">The problem</p>
+  <h2>Fraud arrives in three forms</h2>
+  <div class="grid">
+    <div class="card"><h3>Reused photo</h3><p>A real picture from another claim, cropped, screenshotted or forwarded. The most common route.</p></div>
+    <div class="card"><h3>Made or edited photo</h3><p>An AI-generated image, or damage painted onto a real phone.</p></div>
+    <div class="card"><h3>Receipt that does not fit</h3><p>Wrong amount, date or item for the claim.</p></div>
+  </div>
+  <p>A person cannot compare a photo against every earlier claim, or tell a real photo from an AI-made one.</p>
+</section>
+
+<section class="slide">
+  <p class="tag">How it works</p>
+  <h2>Five checks. A written reason for every call.</h2>
+  <div class="steps">
+    <div><b>Photo details</b><span>Camera data and dates against the story</span></div>
+    <div><b>Seen before?</b><span>Is it a copy of an earlier claim?</span></div>
+    <div><b>Signs of editing</b><span>Re-save pattern, grain, cloned areas</span></div>
+    <div><b>Made by AI?</b><span>AI tags, plus a vision model's hint</span></div>
+    <div><b>Receipt</b><span>Reads it and compares to the claim</span></div>
+  </div>
+  <div class="grid">
+    <div class="card"><h3><span class="pill">Likely fraud</span></h3><p>Any strong sign fired.</p></div>
+    <div class="card"><h3><span class="pill">Needs a look</span></h3><p>Only weak signs fired.</p></div>
+    <div class="card"><h3><span class="pill ok">Looks fine</span></h3><p>Nothing fired.</p></div>
+  </div>
+  <p class="note">Simple rules decide, not a black box. A person makes the final call. Nothing is auto-denied.</p>
+</section>
+
+<section class="slide">
+  <p class="tag">Technique that worked</p>
+  <h2>A learned model found every reused photo</h2>
+  <p class="lede">80 altered copies (crops, screenshots, forwards) and 40 photos never seen before. Settings were frozen before the test.</p>
+  <div class="bars" role="img" aria-label="Reused photos found: quick fingerprint 34 percent, feature matching 79 of 80, SSCD 80 of 80">
+    <div class="row"><span>Quick fingerprint</span><div class="t"><div class="f dim" style="width:34%"></div></div><span class="v">34%</span></div>
+    <div class="row"><span>Feature matching</span><div class="t"><div class="f" style="width:99%"></div></div><span class="v">79 / 80</span></div>
+    <div class="row"><span>SSCD (learned)</span><div class="t"><div class="f hi" style="width:100%"></div></div><span class="v">80 / 80</span></div>
+  </div>
+  <p class="note">False hits on the 40 new photos: quick fingerprint 0, feature matching 3, SSCD 0. SSCD runs on an always-on endpoint in under a second.</p>
+</section>
+
+<section class="slide">
+  <p class="tag">What we tested and left out</p>
+  <h2>Two ideas that did not earn a place</h2>
+  <div class="grid">
+    <div class="card"><h3>AI-image detectors</h3><p>Scored 0.55 to 0.79, where 0.5 is a coin flip. One flagged nearly a third of real photos. We use a vision model as a hint only. AI-made photos are our weakest area: 7 of 8 flagged.</p></div>
+    <div class="card"><h3>One learned score</h3><p>No better than the rules, and on a fraud type it had not seen, recall fell from 97% to 87%. It missed every receipt mismatch. The explainable rules stay.</p></div>
+  </div>
+  <p class="note">The heat map is a guide, not proof: it lights up the busiest parts of any photo, even a genuine one.</p>
+</section>
+
+<section class="slide">
+  <p class="tag">The build</p>
+  <h2>One platform, raw claim to business app</h2>
+  <div class="diagram"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1300 780" font-family="Helvetica, Arial, sans-serif" role="img" aria-labelledby="t d">
+<title id="t">Fraud Defence Workbench architecture</title><desc id="d">Raw claim files land in a Unity Catalog volume. A Lakeflow pipeline builds bronze, silver and gold tables. A detection engine with SSCD and vision models adds verdicts that the gold tables join. Gold data is served through Lakebase and Genie to a Databricks app used by investigators and managers. Unity Catalog governs everything.</desc>
+<defs><marker id="as" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="#33507A"/></marker><marker id="ad" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="#7A4A1A"/></marker></defs>
+
+<text x="24" y="34" text-anchor="start" font-size="22" font-weight="700" fill="#14243C" >Fraud Defence Workbench: from raw claims to a business app</text>
+<text x="24" y="55" text-anchor="start" font-size="12.5" font-weight="400" fill="#5B6472" >Device-protection claims fraud, built end to end on Databricks. Synthetic claims over public photos.</text>
+<rect x="20" y="80" width="230" height="360" rx="12" fill="#F7F5EF" stroke="#7A6A33" stroke-width="1.2"/>
+<text x="34" y="102" text-anchor="start" font-size="12.5" font-weight="700" fill="#7A6A33" letter-spacing="0.6">1  INPUTS</text>
+<rect x="290" y="80" width="330" height="360" rx="12" fill="#EEF6F1" stroke="#2E6B4A" stroke-width="1.2"/>
+<text x="304" y="102" text-anchor="start" font-size="12.5" font-weight="700" fill="#2E6B4A" letter-spacing="0.6">2  LAKEFLOW PIPELINE</text>
+<rect x="660" y="80" width="250" height="360" rx="12" fill="#EEF2F8" stroke="#33507A" stroke-width="1.2"/>
+<text x="674" y="102" text-anchor="start" font-size="12.5" font-weight="700" fill="#33507A" letter-spacing="0.6">4  SERVING</text>
+<rect x="950" y="80" width="330" height="360" rx="12" fill="#FBF1EC" stroke="#8A4A2E" stroke-width="1.2"/>
+<text x="964" y="102" text-anchor="start" font-size="12.5" font-weight="700" fill="#8A4A2E" letter-spacing="0.6">5  DATABRICKS APP</text>
+<rect x="35" y="110" width="200" height="50" rx="8" fill="#FFFFFF" stroke="#7A6A33" stroke-width="1.5"/>
+<text x="135.0" y="132" text-anchor="middle" font-size="13.5" font-weight="700" fill="#14243C" >Claim feed</text>
+<text x="135.0" y="150.0" text-anchor="middle" font-size="11.5" font-weight="400" fill="#3B4658" >JSON batch files</text>
+<rect x="35" y="172" width="200" height="50" rx="8" fill="#FFFFFF" stroke="#7A6A33" stroke-width="1.5"/>
+<text x="135.0" y="194" text-anchor="middle" font-size="13.5" font-weight="700" fill="#14243C" >Claim photos</text>
+<text x="135.0" y="212.0" text-anchor="middle" font-size="11.5" font-weight="400" fill="#3B4658" >JPEG / PNG damage evidence</text>
+<rect x="35" y="234" width="200" height="50" rx="8" fill="#FFFFFF" stroke="#7A6A33" stroke-width="1.5"/>
+<text x="135.0" y="256" text-anchor="middle" font-size="13.5" font-weight="700" fill="#14243C" >Receipts</text>
+<text x="135.0" y="274.0" text-anchor="middle" font-size="11.5" font-weight="400" fill="#3B4658" >image files</text>
+<rect x="35" y="320" width="200" height="100" rx="8" fill="#FFFFFF" stroke="#7A6A33" stroke-width="1.5"/>
+<text x="135.0" y="342" text-anchor="middle" font-size="13" font-weight="700" fill="#14243C" >UC volume: claims_media</text>
+<text x="135.0" y="364.0" text-anchor="middle" font-size="11.5" font-weight="400" fill="#3B4658" >landing/ · images/</text>
+<text x="135.0" y="379.5" text-anchor="middle" font-size="11.5" font-weight="400" fill="#3B4658" >receipts/ · masks/</text>
+<path d="M135 284 L135 320" stroke="#7A6A33" stroke-width="1.5" marker-end="url(#as)" fill="none"/>
+<rect x="305" y="110" width="145" height="48" rx="8" fill="#FFFFFF" stroke="#2E6B4A" stroke-width="1.5"/>
+<text x="377.5" y="132" text-anchor="middle" font-size="12.5" font-weight="700" fill="#14243C" >bronze_claims</text>
+<text x="377.5" y="148.0" text-anchor="middle" font-size="11.5" font-weight="400" fill="#3B4658" >Auto Loader</text>
+<rect x="460" y="110" width="145" height="48" rx="8" fill="#FFFFFF" stroke="#2E6B4A" stroke-width="1.5"/>
+<text x="532.5" y="132" text-anchor="middle" font-size="12" font-weight="700" fill="#14243C" >bronze_claim_images</text>
+<text x="532.5" y="148.0" text-anchor="middle" font-size="11.5" font-weight="400" fill="#3B4658" >file metadata</text>
+<rect x="305" y="184" width="300" height="48" rx="8" fill="#FFFFFF" stroke="#2E6B4A" stroke-width="1.5"/>
+<text x="455.0" y="206" text-anchor="middle" font-size="13.5" font-weight="700" fill="#14243C" >silver_claims</text>
+<text x="455.0" y="222.0" text-anchor="middle" font-size="11.5" font-weight="400" fill="#3B4658" >typed, de-duplicated, quality rules</text>
+<rect x="305" y="258" width="300" height="48" rx="8" fill="#FFFFFF" stroke="#2E6B4A" stroke-width="1.5"/>
+<text x="455.0" y="280" text-anchor="middle" font-size="13.5" font-weight="700" fill="#14243C" >gold_claim_decisions</text>
+<text x="455.0" y="296.0" text-anchor="middle" font-size="11.5" font-weight="400" fill="#3B4658" >claim + verdict + top reason</text>
+<rect x="305" y="332" width="145" height="48" rx="8" fill="#FFFFFF" stroke="#2E6B4A" stroke-width="1.5"/>
+<text x="377.5" y="354" text-anchor="middle" font-size="12" font-weight="700" fill="#14243C" >gold_fraud_summary</text>
+<text x="377.5" y="370.0" text-anchor="middle" font-size="11.5" font-weight="400" fill="#3B4658" >by fraud type</text>
+<rect x="460" y="332" width="145" height="48" rx="8" fill="#FFFFFF" stroke="#2E6B4A" stroke-width="1.5"/>
+<text x="532.5" y="354" text-anchor="middle" font-size="12" font-weight="700" fill="#14243C" >gold_review_queue</text>
+<text x="532.5" y="370.0" text-anchor="middle" font-size="11.5" font-weight="400" fill="#3B4658" >strongest first</text>
+<text x="455" y="404" text-anchor="middle" font-size="11.5" font-weight="400" fill="#2E6B4A" >Serverless declarative pipeline, incremental</text>
+<text x="455" y="421" text-anchor="middle" font-size="11.5" font-weight="400" fill="#2E6B4A" >Quality rules dropped or counted, never hidden</text>
+<path d="M377 158 L377 184" fill="none" stroke="#33507A" stroke-width="2"  marker-end="url(#as)"/>
+<path d="M532 158 L532 184" fill="none" stroke="#33507A" stroke-width="2"  marker-end="url(#as)"/>
+<path d="M455 232 L455 258" fill="none" stroke="#33507A" stroke-width="2"  marker-end="url(#as)"/>
+<path d="M377 306 L377 332" fill="none" stroke="#33507A" stroke-width="2"  marker-end="url(#as)"/>
+<path d="M532 306 L532 332" fill="none" stroke="#33507A" stroke-width="2"  marker-end="url(#as)"/>
+<rect x="675" y="110" width="220" height="118" rx="8" fill="#FFFFFF" stroke="#33507A" stroke-width="1.5"/>
+<text x="785.0" y="132" text-anchor="middle" font-size="13.5" font-weight="700" fill="#14243C" >Lakebase (Postgres)</text>
+<text x="785.0" y="154.0" text-anchor="middle" font-size="11.5" font-weight="400" fill="#3B4658" >synced review_queue</text>
+<text x="785.0" y="169.5" text-anchor="middle" font-size="11.5" font-weight="400" fill="#3B4658" >decisions and audit log</text>
+<text x="785.0" y="185.0" text-anchor="middle" font-size="11.5" font-weight="400" fill="#3B4658" >app round trip under 0.5 s</text>
+<rect x="675" y="244" width="220" height="92" rx="8" fill="#FFFFFF" stroke="#33507A" stroke-width="1.5"/>
+<text x="785.0" y="266" text-anchor="middle" font-size="13.5" font-weight="700" fill="#14243C" >Genie space</text>
+<text x="785.0" y="288.0" text-anchor="middle" font-size="11.5" font-weight="400" fill="#3B4658" >plain-English questions</text>
+<text x="785.0" y="303.5" text-anchor="middle" font-size="11.5" font-weight="400" fill="#3B4658" >over the gold tables</text>
+<text x="785.0" y="319.0" text-anchor="middle" font-size="11.5" font-weight="400" fill="#3B4658" >shows the SQL it wrote</text>
+<rect x="675" y="352" width="220" height="70" rx="8" fill="#FFFFFF" stroke="#33507A" stroke-width="1.5"/>
+<text x="785.0" y="374" text-anchor="middle" font-size="13.5" font-weight="700" fill="#14243C" >SQL warehouse</text>
+<text x="785.0" y="396.0" text-anchor="middle" font-size="11.5" font-weight="400" fill="#3B4658" >serverless, reads Delta</text>
+<rect x="965" y="108" width="145" height="32" rx="8" fill="#FFFFFF" stroke="#8A4A2E" stroke-width="1.5"/>
+<text x="1037.5" y="130" text-anchor="middle" font-size="12.5" font-weight="700" fill="#14243C" >Investigator</text>
+<rect x="1120" y="108" width="145" height="32" rx="8" fill="#FFFFFF" stroke="#8A4A2E" stroke-width="1.5"/>
+<text x="1192.5" y="130" text-anchor="middle" font-size="12.5" font-weight="700" fill="#14243C" >Manager</text>
+<path d="M1037 140 L1037 158 M1192 140 L1192 158" stroke="#8A4A2E" stroke-width="1.5" fill="none"/>
+<rect x="965" y="158" width="300" height="150" rx="8" fill="#FFFFFF" stroke="#8A4A2E" stroke-width="1.5"/>
+<text x="1115.0" y="180" text-anchor="middle" font-size="13.5" font-weight="700" fill="#14243C" >Streamlit app</text>
+<text x="1115.0" y="204" text-anchor="middle" font-size="11.5" font-weight="400" fill="#3B4658" >Claims: inspect a claim, upload a photo</text>
+<text x="1115.0" y="223" text-anchor="middle" font-size="11.5" font-weight="400" fill="#3B4658" >Business view: KPIs and review queue</text>
+<text x="1115.0" y="242" text-anchor="middle" font-size="11.5" font-weight="400" fill="#3B4658" >Ask the data: questions via Genie</text>
+<text x="1115.0" y="261" text-anchor="middle" font-size="11.5" font-weight="400" fill="#3B4658" >Compare methods  ·  Admin</text>
+<rect x="965" y="328" width="300" height="92" rx="8" fill="#FFFFFF" stroke="#8A4A2E" stroke-width="1.5"/>
+<text x="1115.0" y="350" text-anchor="middle" font-size="13.5" font-weight="700" fill="#14243C" >Human review</text>
+<text x="1115.0" y="374.0" text-anchor="middle" font-size="11.5" font-weight="400" fill="#3B4658" >reviewer decisions and audit log</text>
+<text x="1115.0" y="389.5" text-anchor="middle" font-size="11.5" font-weight="400" fill="#3B4658" >saved to Delta and Lakebase</text>
+<rect x="20" y="480" width="600" height="140" rx="12" fill="#F3EEF8" stroke="#5B3A8A" stroke-width="1.2"/>
+<text x="34" y="502" text-anchor="start" font-size="12.5" font-weight="700" fill="#5B3A8A" letter-spacing="0.6">3  INTELLIGENCE (detection engine)</text>
+<rect x="35" y="508" width="185" height="100" rx="8" fill="#FFFFFF" stroke="#5B3A8A" stroke-width="1.5"/>
+<text x="127.5" y="530" text-anchor="middle" font-size="13.5" font-weight="700" fill="#14243C" >Detection engine</text>
+<text x="127.5" y="552.0" text-anchor="middle" font-size="11.5" font-weight="400" fill="#3B4658" >5 checks, rules decide</text>
+<text x="127.5" y="567.5" text-anchor="middle" font-size="11.5" font-weight="400" fill="#3B4658" >explainer words the result</text>
+<text x="127.5" y="583.0" text-anchor="middle" font-size="11.5" font-weight="400" fill="#3B4658" >red / amber / green</text>
+<rect x="232" y="508" width="185" height="100" rx="8" fill="#FFFFFF" stroke="#5B3A8A" stroke-width="1.5"/>
+<text x="324.5" y="530" text-anchor="middle" font-size="13.5" font-weight="700" fill="#14243C" >SSCD endpoint</text>
+<text x="324.5" y="552.0" text-anchor="middle" font-size="11.5" font-weight="400" fill="#3B4658" >Model Serving, always on</text>
+<text x="324.5" y="567.5" text-anchor="middle" font-size="11.5" font-weight="400" fill="#3B4658" >finds cropped or</text>
+<text x="324.5" y="583.0" text-anchor="middle" font-size="11.5" font-weight="400" fill="#3B4658" >screenshotted reuse</text>
+<rect x="429" y="508" width="176" height="100" rx="8" fill="#FFFFFF" stroke="#5B3A8A" stroke-width="1.5"/>
+<text x="517.0" y="530" text-anchor="middle" font-size="13.5" font-weight="700" fill="#14243C" >Vision models</text>
+<text x="517.0" y="552.0" text-anchor="middle" font-size="11.5" font-weight="400" fill="#3B4658" >Llama 4, Claude, Gemini,</text>
+<text x="517.0" y="567.5" text-anchor="middle" font-size="11.5" font-weight="400" fill="#3B4658" >GPT-5: scene and receipt</text>
+<text x="517.0" y="583.0" text-anchor="middle" font-size="11.5" font-weight="400" fill="#3B4658" >(a hint, not a verdict)</text>
+<path d="M250 250 L290 250" fill="none" stroke="#33507A" stroke-width="2"  marker-end="url(#as)"/>
+<path d="M620 250 L660 250" fill="none" stroke="#33507A" stroke-width="2"  marker-end="url(#as)"/>
+<path d="M910 250 L950 250" fill="none" stroke="#33507A" stroke-width="2"  marker-end="url(#as)"/>
+<path d="M135 440 L135 480" fill="none" stroke="#33507A" stroke-width="2"  marker-end="url(#as)"/>
+<text x="162" y="466" text-anchor="start" font-size="11" font-weight="400" fill="#3B4658" font-style="italic">photos</text>
+<path d="M455 480 L455 440" fill="none" stroke="#33507A" stroke-width="2"  marker-end="url(#as)"/>
+<text x="470" y="466" text-anchor="start" font-size="11" font-weight="400" fill="#3B4658" font-style="italic">verdicts joined in gold</text>
+<path d="M1115 420 L1115 550 L626 550" fill="none" stroke="#7A4A1A" stroke-width="2" stroke-dasharray="7 5" marker-end="url(#ad)"/>
+<text x="870" y="538" text-anchor="middle" font-size="11" font-weight="400" fill="#3B4658" font-style="italic">live calls from the app: SSCD fingerprint, vision models</text>
+<rect x="20" y="650" width="1260" height="110" rx="12" fill="#F4F6F9" stroke="#33507A" stroke-width="1.5"/>
+<text x="36" y="674" text-anchor="start" font-size="12.5" font-weight="700" fill="#33507A" letter-spacing="0.6">UNITY CATALOG GOVERNS EVERYTHING ABOVE</text>
+<text x="36" y="698" text-anchor="start" font-size="13" font-weight="400" fill="#14243C" >Catalog <tspan font-weight="700">image_authenticity</tspan>: schemas workbench, results, lakeflow · volume claims_media · registered SSCD model · Lakebase catalog</text>
+<text x="36" y="720" text-anchor="start" font-size="13" font-weight="400" fill="#14243C" >Personal-data tags on claimant_id · table comments (read by Genie) · least-privilege grants for the app identity · audit log</text>
+<text x="36" y="745" text-anchor="start" font-size="11.5" font-weight="400" fill="#5B6472" >Solid arrow: data flow.    Dashed arrow: live call at request time.</text>
+</svg></div>
+  <p class="note">Lakeflow builds the tables, Unity Catalog governs them, Lakebase serves the live queue, Genie answers questions in plain English, and one app puts it in front of your team.</p>
+</section>
+
+<section class="slide">
+  <p class="tag">What it is worth</p>
+  <h2>Start with firm calls only</h2>
+  <p class="lede">Per 1,000 claims, assuming a 3% fraud rate, $666 average claim and $20 per manual look. These are assumptions, not measurements.</p>
+  <div class="scroll"><table>
+    <tr><th></th><th class="n">Firm calls only</th><th class="n">Plus "needs a look"</th></tr>
+    <tr><td>Fraud claims caught</td><td class="n">~25 (83%)</td><td class="n">~29 (98%)</td></tr>
+    <tr><td>Fraud value stopped</td><td class="n">~$16,500</td><td class="n">~$19,600</td></tr>
+    <tr><td>Honest claims sent to a person</td><td class="n">~0</td><td class="n">~420</td></tr>
+    <tr><td>Review cost</td><td class="n">~$500</td><td class="n">~$8,900</td></tr>
+  </table></div>
+  <p class="note">The wider queue catches about five more fraud claims per 1,000 at far higher review cost, so it makes sense once the weak checks are tuned on real labels.</p>
+</section>
+
+<section class="slide">
+  <p class="tag">Honest limits</p>
+  <h2>What this does not prove yet</h2>
+  <ul>
+    <li><b>Small and synthetic.</b> 66 made-up claims over public photos. Direction, not guarantees.</li>
+    <li><b>False alarms are the main cost.</b> 43% of honest claims get a look. Tune on real investigator labels.</li>
+    <li><b>AI-made photos are the weak spot,</b> and new generators keep arriving.</li>
+    <li><b>Reuse is checked against earlier claims only,</b> not the internet.</li>
+    <li><b>Lakebase from the app is sub-second, not instant:</b> 457 ms measured end to end. Decisions save to Delta and to Lakebase.</li>
+  </ul>
+</section>
+
+<section class="slide">
+  <p class="tag">The ask</p>
+  <h2>Pilot on a slice of real claims</h2>
+  <div class="grid">
+    <div class="card"><h3>1. Approve a pilot</h3><p>Investigators label outcomes in the app, so we measure on real claims.</p></div>
+    <div class="card"><h3>2. Share your numbers</h3><p>Fraud rate, average payout and review cost, to replace my assumptions.</p></div>
+    <div class="card"><h3>3. Pick the appetite</h3><p>Firm calls only, or firm calls plus the human-look queue.</p></div>
+  </div>
+  <p class="note">Proof, as text, is in the repo: pipeline run, Genie answers, Lakebase test, governance, 29 pre-release checks.</p>
+</section>
+
+<div class="hint" aria-hidden="true">← → to move</div>
+<script>
+(function(){var s=[].slice.call(document.querySelectorAll('.slide'));
+function cur(){var y=window.scrollY+window.innerHeight*.35,i=0;s.forEach(function(e,k){if(e.offsetTop<=y)i=k});return i}
+document.addEventListener('keydown',function(e){var k=e.key,i=cur();
+if(k==='ArrowRight'||k==='PageDown'||(k===' '&&!e.shiftKey)){e.preventDefault();s[Math.min(i+1,s.length-1)].scrollIntoView()}
+else if(k==='ArrowLeft'||k==='PageUp'){e.preventDefault();s[Math.max(i-1,0)].scrollIntoView()}})})();
+</script></body></html>
